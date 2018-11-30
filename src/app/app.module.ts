@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/loginForm.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CarteleraComponent } from './cartelera/cartelera.component'; 
+import { BillboardComponent } from './cartelera/billboard.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    CarteleraComponent
+    BillboardComponent
   ],
   imports: [
     BrowserModule,
