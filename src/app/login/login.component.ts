@@ -11,9 +11,6 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  getAtuhToke(){
-    return this.auth_token
-  }
   ngOnInit() {
   }
 
