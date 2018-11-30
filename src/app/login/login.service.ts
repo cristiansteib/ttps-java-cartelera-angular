@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 import { User } from 'src/models/user';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  constructor() {http: HttpClient }
+  constructor(private http: HttpClient) {} 
   /** POST: Login a user*/
   loginUser(user: User):Observable<JSON> {
     return this.http.post<JSON>("auth/login", user)
