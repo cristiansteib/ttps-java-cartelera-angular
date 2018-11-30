@@ -1,17 +1,24 @@
+
 <form  #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-        {{diagnostic}}
-        <div class="form-group">
-         <label for="username">Usuario</label>
-         <input type="text" class="form-control" id="username"
-         required
-         [(ngModel)]="model.username" name="username">
-        </div>
-        <div class="form-group">
-         <label for="password">Contraseña</label>
-         <input type="text" class="form-control" id="password"
-         [(ngModel)]="model.password" name="password">
-        </div>
-        
-        <button type="submit" class="btn btn-success"
-        >Submit</button>
-</form>
+{{diagnostic}}
+<h1 class="h3 mb-3 font-weight-normal">Iniciar sesion</h1>
+
+<div class="form-group">
+  <label for="username" class="sr-only">Usuario</label>
+  <input type="text" class="form-control" id="username"
+  placeholder="Usuario" required
+  [(ngModel)]="model.username" name="username">
+</div>
+<div class="form-group">
+  <label for="password" class="sr-only">Password</label>
+   <input type="text" class="form-control" id="password"
+  [(ngModel)]="model.password" name="password" placeholder="Contrase&ntilde;a">
+</div>
+        <div class="form-group text-left">
+  <label for="remember" class="sr-only">Rercordar cuenta</label>
+  <input id="remember" type="checkbox" value="remember-me" tabindex="3"> Recordar
+</div>
+<div class="form-group ">            
+  <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Iniciar sesion</button>
+</div>
+<p class="mt-2 mb-3 text-muted">&copy; 2018</p>
