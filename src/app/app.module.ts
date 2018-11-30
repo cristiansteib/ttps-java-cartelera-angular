@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/loginForm.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { CarteleraComponent } from './cartelera/cartelera.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CarteleraComponent
   ],
   imports: [
     BrowserModule,

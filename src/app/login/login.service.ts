@@ -25,7 +25,7 @@ export class LoginService {
 
   /** Logout the current user*/
   logoutUser() {
-      this.http.get<JSON>("auth/logout?token=" + localStorage.getItem("token")).subscribe(
+      this.http.get<JSON>(this.url + "auth/logout?token=" + localStorage.getItem("token")).subscribe(
         data => {
           localStorage.removeItem("token")
           localStorage.removeItem("user_id")

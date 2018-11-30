@@ -17,15 +17,12 @@ import { LoginService } from '../login.service';
     submitted = false
     
     onSubmit(formulario: NgForm) {
-        console.log("submit");
         if(formulario.valid) {
             this.model.username = formulario.value.username
             this.model.password = formulario.value.password
             this.submitted = true
             this.loginService.loginUser(this.model)
-        } else{
-            console.log("nose mnada");
-        }
+        } 
     }
     get diagnostic() { return JSON.stringify(this.model); }
   }  
