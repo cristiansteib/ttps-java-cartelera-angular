@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {NgForm} from '@angular/forms';
+import { User } from 'src/models/user';
 
 @Component({
     selector: 'login-form',
-    templateUrl: './login-form.component.html',
-    styleUrls: ['./login-form.component.sass']
+    templateUrl: './loginForm.component.html',
+    styleUrls: ['./loginForm.component.sass']
    })
 
    export class LoginFormComponent {
     powers = ['Really Smart', 'Super Flexible',
     'Super Hot', 'Weatimport { Component, OnInit }']
-    model = null
+    model = new User(null,'','')
     submitted = false
     
     onSubmit(formulario: NgForm) {
         if(formulario.valid) {
-        this.model.name = formulario.value.name
+        this.model.username = formulario.value.username
+        this.model.password = formulario.value.password
         this.submitted = true
         }
     }
-
+    get diagnostic() { return JSON.stringify(this.model); }
   }  
