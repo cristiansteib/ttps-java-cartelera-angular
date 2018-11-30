@@ -1,8 +1,8 @@
 export class User {
     constructor(
     public id: number,
-    public name: string,
-    public power: string,
-    public alterEgo?: string
+    public username: string,
+    public password?: string,
+    public isAdmin?: boolean
     ) { }
 }

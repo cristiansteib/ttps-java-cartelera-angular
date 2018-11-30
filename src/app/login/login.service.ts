@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   constructor(private http: HttpClient) {} 
+  
   /** POST: Login a user*/
   loginUser(user: User):Observable<JSON> {
     return this.http.post<JSON>("auth/login", user)
