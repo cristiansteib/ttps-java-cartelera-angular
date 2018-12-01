@@ -1,6 +1,13 @@
 <div *ngFor="let publication of publications">
-  
+    <div class="card mini-publicacion mt-3">
+        <div class="card-body">
+           <h5 class="card-title">{{publication.title}}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">{{publication.creationDate  | date:'medium' }}</h6>
+           <p class="card-text">{{publication.description}}</p>
+           <p class="card-text">{{publication.content}}</p>
+           <button type="button" class="btn btn-outline-primary mr-1">Ver <span class="badge badge-info"> {{publication.count_comments}} <i class="far fa-comments"></i></span></button> 
+           <button *ngIf="publication.canEdit" type="button" class="btn btn-outline-primary">Editar</button>
+       </div>
+     </div>
 </div>
-<p>
-  billboard-publication works!
-</p>
+<div *ngIf="!publications">Aun no hay publicaciones para esta cartelera.</div>
