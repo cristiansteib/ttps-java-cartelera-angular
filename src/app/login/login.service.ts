@@ -4,6 +4,9 @@ import { HttpHeaders } from '@angular/common/http';
 import { User } from 'src/models/user';
 import { HttpClient } from '@angular/common/http';
 import { GlobalsService } from '../globals.service';
+import { Observable } from 'rxjs/Observable';
+import { LoginComponent } from './login.component';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +23,29 @@ export class LoginService {
 
     this.http.post<any>(this.url + "auth/login", user).subscribe(
       data => {
-        localStorage.setItem("token", data.token)
-        localStorage.setItem("user_id", data.userId)
+        if (data.status == 'ok') {
+          localStorage.setItem("token", data.token)
+          localStorage.setItem("user_id", data.userId)
+          this.globalsService.is_logged = true
+          window.location.replace("/")
+        } else {
+          window.alert("Usuario invalido.")
+        }
       })
     }
   
-
   /** Logout the current user*/
   logoutUser() {
-      this.http.get<JSON>(this.url + "auth/logout?token=" + localStorage.getItem("token")).subscribe(
+      this.http.get<any>(this.url + "auth/logout?token=" + localStorage.getItem("token")).subscribe(
         data => {
-          localStorage.removeItem("token")
-          localStorage.removeItem("user_id")
+          localStorage.clear()
+          window.location.replace("/")
         }
       )
   }
+
+  getUserData():Observable<any>{
+    return this.http.get<JSON>(this.url + "auth/logout?token=" + localStorage.getItem("token"))
+  }
+
 }

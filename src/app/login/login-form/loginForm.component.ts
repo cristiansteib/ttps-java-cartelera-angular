@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { User } from 'src/models/user';
 import { LoginService } from '../login.service';
+import { GlobalsService } from 'src/app/globals.service';
 
 @Component({
     selector: 'login-form',
@@ -11,8 +12,13 @@ import { LoginService } from '../login.service';
    })
 
    export class LoginFormComponent {
+    constructor(
+        private loginService: LoginService,
+        private globalService: GlobalsService
+        ) {}
 
-    constructor(private loginService: LoginService) {}
+    public invalidLogin_ = false
+
     model = new User(null,'','')
     submitted = false
     
@@ -24,5 +30,10 @@ import { LoginService } from '../login.service';
             this.loginService.loginUser(this.model)
         } 
     }
+
+    get isLogged(){
+        return this.globalService.is_logged
+    }
+
     get diagnostic() { return JSON.stringify(this.model); }
   }  

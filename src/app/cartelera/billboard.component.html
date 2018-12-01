@@ -1,7 +1,9 @@
 <div *ngFor="let billboard of billboards">
     <span class="d-flex justify-content-between">
-        <a href="#" class="nav-link"><h4>{{billboard.title}}</h4></a>
-        <button class="btn btn-outline-dark"><i class="fas fa-bell"></i></button>
+        <a *ngIf="isLogged" routerLink="billboard/{{billboard.id}}" class="nav-link"><h4>{{billboard.title}}</h4></a>
+        <a *ngIf="!isLogged" routerLink="auth/login" class="nav-link"><h4>{{billboard.title}}</h4></a>       
+        <button *ngIf="billboard.suscribed" class="btn btn-outline-success" (click)="unsuscribe(billboard)"><i class="fas fa-bell"></i></button>
+        <button *ngIf="!billboard.suscribed" class="btn btn-outline-info"  (click)="suscribe(billboard)"><i class="fas fa-bell"></i></button>
     </span>
     <p>{{billboard.description}}</p>
     <br>

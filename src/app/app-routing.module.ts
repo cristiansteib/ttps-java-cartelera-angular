@@ -5,8 +5,8 @@ import { BillboardComponent } from './cartelera/billboard.component';
 import { BillboardPublicationComponent } from './billboard-publication/billboard-publication.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'billboard/{id}', component: BillboardPublicationComponent },
+  { path: 'auth/:action', component: LoginComponent },
+  { path: 'billboard/:id', component: BillboardPublicationComponent },
   { path: '', component: BillboardComponent },
 ];
 
