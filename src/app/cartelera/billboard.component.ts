@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BillboardService } from './billboard.service';
 import { Billboard } from 'src/models/Billboard';
 import { GlobalsService } from '../globals.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-billboard',
@@ -10,7 +11,8 @@ import { GlobalsService } from '../globals.service';
 })
 export class BillboardComponent implements OnInit {
   billboards: Billboard[];
-  constructor(private billboardService: BillboardService,private globalService: GlobalsService) { 
+  
+  constructor(private billboardService: BillboardService,private globalService: GlobalsService, private activatedRoute: ActivatedRoute) { 
     this.billboardService.getAllBillboards().subscribe(
       billboards => {
         this.billboards = billboards
@@ -18,6 +20,8 @@ export class BillboardComponent implements OnInit {
     )
   }
 
+  ngOnInit() {}
+  
   unsuscribe(billboard: Billboard){
     console.log(billboard)
   }
@@ -29,7 +33,5 @@ export class BillboardComponent implements OnInit {
   get isLogged(){
     return this.globalService.is_logged
 }
-  ngOnInit() {
-  }
 
 }

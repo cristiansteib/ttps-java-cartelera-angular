@@ -7,16 +7,18 @@
 
 <div class="container mt-5">   
         <div class="row">
-            <div class="col-sm-3 mr-2 border border-primary p-3">
-                <h5>Mis carteleras</h5>
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TTPS - JAVA 2018</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Novedades</a>
-                    </li>
-                </ul>
+            <div class="col-sm-3 mr-2 ">
+                <div *ngIf="isLogged" class="border border-primary p-3">
+                        <h5>Mis carteleras</h5>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">TTPS - JAVA 2018</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Novedades</a>
+                            </li>
+                        </ul>
+                </div>
                 <hr class="d-sm-none">
             </div>
             <div class="col-sm-8">

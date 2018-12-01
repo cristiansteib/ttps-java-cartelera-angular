@@ -1,3 +1,4 @@
+<div *ngIf="!billboards"><h3>Sin carteleras disponibles :(</h3></div>
 <div *ngFor="let billboard of billboards">
     <span class="d-flex justify-content-between">
         <a *ngIf="isLogged" routerLink="billboard/{{billboard.id}}" class="nav-link"><h4>{{billboard.title}}</h4></a>
