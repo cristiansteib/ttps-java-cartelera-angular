@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BillboardService } from './billboard.service';
+import { Billboard } from 'src/models/Billboard';
 
 @Component({
   selector: 'app-billboard',
@@ -6,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./billboard.component.sass']
 })
 export class BillboardComponent implements OnInit {
-
-  constructor() { }
-
+  billboards: Billboard[];
+  constructor(private billboardService: BillboardService) { 
+    this.billboardService.getAllBillboards().subscribe(
+      billboards => {
+        this.billboards = billboards
+      }
+    )
+  }
+  
   ngOnInit() {
   }
 
