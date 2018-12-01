@@ -17,7 +17,7 @@ export class BillboardService {
 
     
   getAllBillboards() {
-    return this.http.post<any>(this.url + "carteleras?token=" + localStorage.getItem("token"), [])
+    return this.http.get<any>(this.url + "carteleras?token=" + localStorage.getItem("token"))
   }
 
 }

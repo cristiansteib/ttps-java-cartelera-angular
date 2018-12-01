@@ -13,16 +13,16 @@ import { LoginService } from '../login.service';
    export class LoginFormComponent {
 
     constructor(private loginService: LoginService) {}
-    user = new User(null,'','')
+    model = new User(null,'','')
     submitted = false
     
     onSubmit(formulario: NgForm) {
         if(formulario.valid) {
-            this.user.username = formulario.value.username
-            this.user.password = formulario.value.password
+            this.model.username = formulario.value.username
+            this.model.password = formulario.value.password
             this.submitted = true
-            this.loginService.loginUser(this.user)
+            this.loginService.loginUser(this.model)
         } 
     }
-    get diagnostic() { return JSON.stringify(this.user); }
+    get diagnostic() { return JSON.stringify(this.model); }
   }  

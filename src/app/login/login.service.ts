@@ -17,10 +17,7 @@ export class LoginService {
     url = this.globalsService.getApiUrl()
   /** POST: Login a user*/
   loginUser(user: User) {
-    const body = new HttpParams()
-    .set('username', user.username)
-    .set('password', user.password);
-    
+
     this.http.post<any>(this.url + "auth/login", user).subscribe(
       data => {
         localStorage.setItem("token", data.token)
