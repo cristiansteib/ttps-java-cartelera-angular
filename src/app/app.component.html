@@ -2,7 +2,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a routerLink="" routerLinkActive="active" class="navbar-brand">Carteleras</a>
     <a *ngIf="!isLogged" routerLink="auth/login" routerLinkActive="active" class="navbar-brand" >Iniciar sesion</a>
+    <a *ngIf="isLogged" routerLink="user/profile" routerLinkActive="active" class="navbar-brand" >Perfil de usuario</a>
+    
     <a *ngIf="isLogged" routerLink="auth/logout" routerLinkActive="active" class="navbar-brand" >Cerrar sesion</a>
+
 </nav>
 
 <div class="container mt-5">   

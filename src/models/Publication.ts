@@ -1,3 +1,5 @@
+import {PublicationComment} from './PublicationComment';
+
 export class Publication {
     constructor(
     public id: number,
@@ -7,6 +9,6 @@ export class Publication {
     public title: string,
     public ownerId: number,
     public canEdit: boolean,
-    public count_comments: number
+    public countComments: number,
     ) { }
 }

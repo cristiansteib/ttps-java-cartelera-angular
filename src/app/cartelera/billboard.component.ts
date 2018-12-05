@@ -11,27 +11,60 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BillboardComponent implements OnInit {
   billboards: Billboard[];
-  
-  constructor(private billboardService: BillboardService,private globalService: GlobalsService, private activatedRoute: ActivatedRoute) { 
-    this.billboardService.getAllBillboards().subscribe(
-      billboards => {
-        this.billboards = billboards
+  suscribedBillboardsIds: number[];
+
+  constructor(private billboardService: BillboardService,private globalService: GlobalsService, private activatedRoute: ActivatedRoute) {  }
+
+
+  updateBillboardsIdsSuscribed() {
+    // fill the array with the ids of suscribed billboards
+    this.billboardService.getSuscribedBillboardsIds().subscribe(
+      billboardsIds => {
+        this.suscribedBillboardsIds = billboardsIds
       }
     )
   }
 
-  ngOnInit() {}
+  updateAllExistingBillboards() {
+        // fill the array with all billboards
+        this.billboardService.getAllBillboards().subscribe(
+          billboards => {
+            this.billboards = billboards
+          }
+        )
+  }
+
+  ngOnInit() {
+    this.updateAllExistingBillboards()
+    this.updateBillboardsIdsSuscribed()  
+}
   
-  unsuscribe(billboard: Billboard){
-    console.log(billboard)
+  unsuscribe(billboard: Billboard) {
+    this.billboardService.unsuscribeToBillboard(billboard).subscribe(
+      data => {
+        this.suscribedBillboardsIds = data
+
+      }
+    )
   }
   
   suscribe(billboard: Billboard){
-    console.log(billboard)
+    this.billboardService.suscribeToBillboard(billboard).subscribe(
+      data => {
+        this.suscribedBillboardsIds = data
+      }
+    )
   }
 
   get isLogged(){
     return this.globalService.is_logged
-}
+  }
+
+  isSuscribed(billboard:Billboard){
+    if (!this.suscribedBillboardsIds){
+      return false;
+    }
+    return this.suscribedBillboardsIds.includes(billboard.id)
+  }
 
 }

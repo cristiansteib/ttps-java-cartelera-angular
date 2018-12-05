@@ -3,10 +3,9 @@
     <span class="d-flex justify-content-between">
         <a *ngIf="isLogged" routerLink="billboard/{{billboard.id}}" class="nav-link"><h4>{{billboard.title}}</h4></a>
         <a *ngIf="!isLogged" routerLink="auth/login" class="nav-link"><h4>{{billboard.title}}</h4></a>       
-        <button *ngIf="billboard.suscribed" class="btn btn-outline-success" (click)="unsuscribe(billboard)"><i class="fas fa-bell"></i></button>
-        <button *ngIf="!billboard.suscribed" class="btn btn-outline-info"  (click)="suscribe(billboard)"><i class="fas fa-bell"></i></button>
+        <button *ngIf="isSuscribed(billboard)" class="btn btn-outline-success" (click)="unsuscribe(billboard)"><i class="fas fa-bell"></i></button>
+        <button *ngIf="!isSuscribed(billboard)" class="btn btn-outline-info"  (click)="suscribe(billboard)"><i class="fas fa-bell"></i></button>
     </span>
     <p>{{billboard.description}}</p>
     <br>
 </div>
-

@@ -17,15 +17,31 @@ export class BillboardService {
     
     url = this.globalsService.getApiUrl()
 
-    
+  getBillboardData(id: number): Observable<Billboard> {
+    return this.http.get<any>(this.url + 'carteleras/' + id + '?token=' + localStorage.getItem('token'));
+  }
+
   getAllBillboards():Observable<Billboard[]> {
     return this.http.get<any>(this.url + "carteleras?token=" + localStorage.getItem("token"))
   }
 
   getSuscribedBillboards():Observable<Billboard[]> {
-    return this.http.get<any>(this.url + "carteleras/suscribed?token=" + localStorage.getItem("token"))
-  }  
-  
+    return this.http.get<any>(this.url + "carteleras/suscprito?token=" + localStorage.getItem("token"))
+  }
+
+  getSuscribedBillboardsIds():Observable<[]> {
+    return this.http.get<any>(this.url + "carteleras/suscprito/ids?token=" + localStorage.getItem("token"))
+  }
+
+  suscribeToBillboard(billboard: Billboard):Observable<[]> {
+    var id = billboard.id
+    return this.http.get<any>(this.url + "carteleras/suscribir/" + id + "?token=" + localStorage.getItem("token"))
+  }
+
+  unsuscribeToBillboard(billboard: Billboard):Observable<[]> {
+    var id = billboard.id
+    return this.http.get<any>(this.url + "carteleras/desuscribir/" + id + "?token=" + localStorage.getItem("token"))
+  }
 
 
 }
