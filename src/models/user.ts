@@ -2,7 +2,10 @@ export class User {
     constructor(
     public id: number,
     public username: string,
+    public name?: string,
+    public lastName?: string,
     public password?: string,
-    public isAdmin?: boolean
+    public isAdmin?: boolean,
+    public notification?: number
     ) { }
 }
