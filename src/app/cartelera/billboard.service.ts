@@ -18,18 +18,27 @@ export class BillboardService {
     url = this.globalsService.getApiUrl()
 
   getBillboardData(id: number): Observable<Billboard> {
+    /* Retorna la informacion de una cartelera en particular*/    
     return this.http.get<any>(this.url + 'carteleras/' + id + '?token=' + localStorage.getItem('token'));
   }
 
+  getBillboardSuscribers(billboardId: number): Observable<User> {
+    /* Retorna un lista de los usuarios que estan suscriptos a la cartelera. */
+    return this.http.get<any>(this.url + 'carteleras/' + billboardId + '/suscriptores?token=' + localStorage.getItem('token'));
+  }
+
   getAllBillboards():Observable<Billboard[]> {
-    return this.http.get<any>(this.url + "carteleras?token=" + localStorage.getItem("token"))
+    /*Retorna todas las carteleras disponibles */
+    return this.http.get<any>(this.url + "carteleras")
   }
 
   getSuscribedBillboards():Observable<Billboard[]> {
+    /* Retorna una lista de billboards a la que el usuario se suscribio */    
     return this.http.get<any>(this.url + "carteleras/suscprito?token=" + localStorage.getItem("token"))
   }
 
   getSuscribedBillboardsIds():Observable<[]> {
+    /* Retorna una lista de id de carteleras a la que el usuario se suscribio */    
     return this.http.get<any>(this.url + "carteleras/suscprito/ids?token=" + localStorage.getItem("token"))
   }
 

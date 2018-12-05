@@ -25,8 +25,4 @@ export class PublicationService {
   getCommentsAndResponses(idBillboard:number,  idPublication:number):Observable<PublicationComment[]>  {
     return this.http.get<PublicationComment[]>(this.url + 'carteleras/' + idBillboard + '/publicaciones/'+ idPublication +'/comentarios?token=' + localStorage.getItem('token'));
   }
-
-
-
-
 }
