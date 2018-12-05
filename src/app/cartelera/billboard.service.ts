@@ -29,7 +29,7 @@ export class BillboardService {
 
   getAllBillboards():Observable<Billboard[]> {
     /*Retorna todas las carteleras disponibles */
-    return this.http.get<any>(this.url + "carteleras")
+    return this.http.get<any>(this.url + "carteleras?token=" + localStorage.getItem("token"))
   }
 
   getSuscribedBillboards():Observable<Billboard[]> {
