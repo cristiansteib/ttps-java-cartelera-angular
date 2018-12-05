@@ -17,30 +17,32 @@
   <!-- comentarios de la publicacion -->
  <div class="offset-md-3 col-md-9 comentarios mt-5 mb-5">
   <h5> <i class="far fa-comments"></i> Comentarios:</h5>
-  <div class="comentario-wrapper mt-2">
-    <div class="card comentario">
-     <div class="card-body">
-        <p class="card-text">Coemtariio bla bla bla bla  bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla. bla bla bla bla..</p>
-        <div class="text-right m-0">
-          <p class="card-text">Cristian Steib</p>
-          <h6 class="card-subtitle mb-2 text-muted">Fecha 5/5/2018 08:00</h6>
-        </div>
-        <div>
-          <button type="button" class="btn btn-sm btn-outline-secondary m-1">Responder</button>
-          <button type="button" class="btn btn-sm  btn-outline-danger m-1">Eliminar</button>
-        </div>
-        </div>
+  <div *ngFor="let comment of currentPublicationComments">
+    <!-- comentario -->
+    <div class="comentario-wrapper mt-2">
+      <div class="card comentario">
+      <div class="card-body">
+          <p class="card-text">{{ comment.content }}</p>
+          <div class="text-right m-0">
+            <p class="card-text">{{ comment.user }}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{{ comment.datetime }}</h6>
+          </div>
+          <div>
+            <button type="button" class="btn btn-sm btn-outline-secondary m-1">Responder</button>
+            <button type="button" class="btn btn-sm  btn-outline-danger m-1">Eliminar</button>
+          </div>
+          </div>
+      </div>
     </div>
-  </div>
-
-          <!-- Respuesta a comentario-->
+          <!-- Respuestas a comentario-->
+        <div *ngFor="let answer of comment.answers">
           <div class="offset-sm-3 respuesta-wrapper mt-1">
               <div class="card respuesta">
                <div class="card-body">
-                  <p class="card-text">esto es una respuesta.</p>
+                  <p class="card-text">{{ answer.content }}</p>
                   <div class="text-right m-0">
-                    <p class="card-text">Marcos c</p>
-                    <h6 class="card-subtitle mb-2 text-muted">Fecha 5/5/2018 08:00</h6>
+                    <p class="card-text">{{ answer.user }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ answer.date }}</h6>
                   </div>
                   <div>
                       <button type="button" class="btn btn-sm  btn-outline-danger">Eliminar</button>
@@ -48,19 +50,16 @@
                   </div>
               </div>
             </div>
-
-
- </div><!--Fin de comentarios -->
+          </div>
+          <!-- Fin Respuestas a comentario-->
+    </div>
+ </div><!--Fin de comentario -->
 
  
-
-
-
 </div> <!------ END CARTELERA ----->
 
 
 <!-- Modal para editar la publicacion -->
-
 <div class="modal fade" id="editarPublicacion" tabindex="-1" role="dialog" aria-labelledby="editarPublicacion" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
