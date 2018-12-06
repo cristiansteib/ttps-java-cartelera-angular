@@ -52,7 +52,11 @@ export class BillboardPublicationComponent implements OnInit {
     if(formulario.valid) {
       this.submitted = true
       console.log(this.newPublication)
-      this.publications.push(this.newPublication)
+      this.billboardPublicationService.addBillboardPublication(this.billboardSelected.id, this.newPublication).subscribe(
+        publication => {
+          this.publications.push(publication)
+        }
+      )
     }
   }
 
