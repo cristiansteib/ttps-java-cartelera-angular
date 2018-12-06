@@ -11,7 +11,7 @@
         <button class="btn btn-outline-success m-1" data-toggle="modal" data-target="#agregarPublicacion">Agregar
           publicacion
         </button>
-        <button type="button" class="btn btn-outline-primary m-1">Ver suscriptores <span
+        <button type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#listaSuscriptores">Ver suscriptores <span
           class="badge badge-info">85 </span></button>
       </div>
     </div>
@@ -87,4 +87,36 @@
         </div>
       </div>
     </div>
+  </div>
 
+
+  <!-- Modal lista de suscriptores-->
+  <div class="modal fade" id="listaSuscriptores" tabindex="-1" role="dialog" aria-labelledby="listaSuscriptores"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Usuarios suscriptos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Usuario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of billboardSelected.suscribedUsers">
+                <td>{{ user.name }} {{ user.lastName }}</td>
+              </tr>
+            </tbody>
+       </table>
+       </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+  </div>
+</div>

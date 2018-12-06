@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a routerLink="" routerLinkActive="active" class="navbar-brand">Carteleras</a>
-
+    
     <ul class="navbar-nav ml-auto">
         <a *ngIf="!isLogged" class="nav-link" routerLink="auth/login" routerLinkActive="active" ><i class="fas fa-sign-in-alt"></i> Iniciar sesion</a>
         <li *ngIf="isLogged" class="nav-item dropdown hidden-md-down show">
