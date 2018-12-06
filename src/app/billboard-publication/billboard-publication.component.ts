@@ -33,7 +33,7 @@ export class BillboardPublicationComponent implements OnInit {
           }
         );
 
-        /* load all the data for the billboard */
+        /* load all the data for the current billboard */
         this.billboardService.getBillboardData(params['id']).subscribe(
           data => {
             this.billboardSelected = data;
