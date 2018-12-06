@@ -55,6 +55,7 @@ export class BillboardPublicationComponent implements OnInit {
       this.billboardPublicationService.addBillboardPublication(this.billboardSelected.id, this.newPublication).subscribe(
         publication => {
           this.publications.push(publication)
+          formulario.reset
         }
       )
     }

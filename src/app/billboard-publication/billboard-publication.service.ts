@@ -23,7 +23,7 @@ export class BillboardPublicationService {
   }
 
   addBillboardPublication(idBillboard:number, publication: Publication) {
-    return this.http.post<Publication>(this.url + 'carteleras/'+ idBillboard +'publicaciones/?token=' + localStorage.getItem('token'), publication);
+    return this.http.post<Publication>(this.url + 'carteleras/'+ idBillboard +'/publicaciones/?token=' + localStorage.getItem('token'), publication);
   }
 
 }

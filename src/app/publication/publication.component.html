@@ -1,7 +1,7 @@
 <div class="col-sm-12 cartelera mb-5">
 
   <!-- Datos de la publicacion-->
-  <div class="card publicacion mt-3">
+  <div *ngIf="currentPublication" class="card publicacion mt-3">
     <div class="card-body">
       <h4 class="card-title">{{ currentPublication.title }}</h4>
       <h6 class="card-subtitle mb-2 text-muted">{{ currentPublication.creationDate | date:'medium'  }}</h6>
