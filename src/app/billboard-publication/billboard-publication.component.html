@@ -23,8 +23,10 @@
       <div class="card-body">
         <h5 class="card-title">{{publication.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{publication.publishDate  | date:'medium' }}</h6>
-        <em class="card-text">{{publication.description}}</em>
-        <p class="card-text">{{publication.content}}</p>
+        <em *ngIf="publication.description" class="card-text">{{publication.description}}</em>
+        <em *ngIf="!publication.description" class="card-text text-muted">Publicacion sin descripcion.</em>
+        <p *ngIf="publication.content" class="card-text">{{publication.content}}</p>
+        <p *ngIf="!publication.content" class="card-text text-muted">Publicacion sin contenido.</p>
         <button routerLink="publication/{{publication.id}}" type="button" class="btn btn-outline-primary mr-1">Ver <span
           class="badge badge-info"> {{publication.countComments}} <i class="far fa-comments"></i></span></button>
         <button *ngIf="publication.canEdit" type="button" class="btn btn-outline-primary">Editar</button>
@@ -96,7 +98,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Usuarios suscriptos</h5>
+          <h5 class="modal-title">Usuarios suscriptos a esta cartelera</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -105,7 +107,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Usuario</th>
+                <th scope="col">Usuarios</th>
               </tr>
             </thead>
             <tbody>
