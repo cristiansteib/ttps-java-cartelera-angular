@@ -4,6 +4,8 @@ import {BillboardPublicationService} from './billboard-publication.service';
 import {Publication} from 'src/models/Publication';
 import {Billboard} from 'src/models/Billboard';
 import {BillboardService} from '../cartelera/billboard.service';
+import {User} from '../../models/user';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-billboard-publication',
@@ -40,6 +42,18 @@ export class BillboardPublicationComponent implements OnInit {
 
       }
     });
+  }
+
+
+  newPublication = new Publication()
+  submitted = false
+
+  onSubmit(formulario: NgForm) {
+    if(formulario.valid) {
+      this.submitted = true
+      console.log(this.newPublication)
+      this.publications.push(this.newPublication)
+    }
   }
 
 

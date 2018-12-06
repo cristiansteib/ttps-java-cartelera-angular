@@ -2,121 +2,130 @@
 
   <!-- Datos de la publicacion-->
   <div class="card publicacion mt-3">
-     <div class="card-body">
-        <h4 class="card-title">{{ currentPublication.title }}</h4>
-        <h6 class="card-subtitle mb-2 text-muted">{{ currentPublication.creationDate | date:'medium'  }}</h6>
-        <h3><hr></h3>
-        <p class="card-text">{{ currentPublication.description }}</p>
-        <p class="card-text">{{ currentPublication.content }}</p>
-        <button type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#editarPublicacion"> Editar</button>
-        <button type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#agregarComentario">Comentar</button>
-       <button type="button" class="btn btn-outline-danger m-1">Eliminar</button>
+    <div class="card-body">
+      <h4 class="card-title">{{ currentPublication.title }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{ currentPublication.creationDate | date:'medium'  }}</h6>
+      <h3>
+        <hr>
+      </h3>
+      <p class="card-text">{{ currentPublication.description }}</p>
+      <p class="card-text">{{ currentPublication.content }}</p>
+      <button type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#editarPublicacion">
+        Editar
+      </button>
+      <button type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#agregarComentario">
+        Comentar
+      </button>
+      <button type="button" class="btn btn-outline-danger m-1">Eliminar</button>
     </div>
   </div>
- 
+
   <!-- comentarios de la publicacion -->
- <div class="offset-md-3 col-md-9 comentarios mt-5 mb-5">
-  <h5> <i class="far fa-comments"></i> Comentarios:</h5>
-  <div *ngFor="let comment of currentPublicationComments">
-    <!-- comentario -->
-    <div class="comentario-wrapper mt-2">
-      <div class="card comentario">
-      <div class="card-body">
-          <p class="card-text">{{ comment.text }}</p>
-          <div class="text-right m-0">
-            <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
-            <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
+  <div class="offset-md-3 col-md-9 comentarios mt-5 mb-5">
+    <h5><i class="far fa-comments"></i> Comentarios:</h5>
+    <div *ngFor="let comment of currentPublicationComments">
+      <!-- comentario -->
+      <div class="comentario-wrapper mt-2">
+        <div class="card comentario">
+          <div class="card-body">
+            <p class="card-text">{{ comment.text }}</p>
+            <div class="text-right m-0">
+              <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
+              <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
+            </div>
+            <div>
+              <button type="button" class="btn btn-sm btn-outline-secondary m-1">Responder</button>
+              <button type="button" class="btn btn-sm  btn-outline-danger m-1">Eliminar</button>
+            </div>
           </div>
-          <div>
-            <button type="button" class="btn btn-sm btn-outline-secondary m-1">Responder</button>
-            <button type="button" class="btn btn-sm  btn-outline-danger m-1">Eliminar</button>
-          </div>
-          </div>
+        </div>
       </div>
-    </div>
-          <!-- Respuestas a comentario-->
-        <div *ngFor="let answer of comment.answers">
-          <div class="offset-sm-3 respuesta-wrapper mt-1">
-              <div class="card respuesta">
-               <div class="card-body">
-                  <p class="card-text">{{ answer.answer }}</p>
-                  <div class="text-right m-0">
-                    <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
-                  </div>
-                  <div>
-                  <button type="button" class="btn btn-sm  btn-outline-danger">Eliminar</button>
-                  </div>
-                  </div>
+      <!-- Respuestas a comentario-->
+      <div *ngFor="let answer of comment.answers">
+        <div class="offset-sm-3 respuesta-wrapper mt-1">
+          <div class="card respuesta">
+            <div class="card-body">
+              <p class="card-text">{{ answer.answer }}</p>
+              <div class="text-right m-0">
+                <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
+              </div>
+              <div>
+                <button type="button" class="btn btn-sm  btn-outline-danger">Eliminar</button>
               </div>
             </div>
           </div>
-          <!-- Fin Respuestas a comentario-->
+        </div>
+      </div>
+      <!-- Fin Respuestas a comentario-->
     </div>
- </div><!--Fin de comentario -->
+  </div><!--Fin de comentario -->
 
- 
+
 </div> <!------ END CARTELERA ----->
 
 
 <!-- Modal para editar la publicacion -->
-<div class="modal fade" id="editarPublicacion" tabindex="-1" role="dialog" aria-labelledby="editarPublicacion" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-  <div class="modal-header">
-    <h5 class="modal-title">Editar publicacion</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-     <div class="form-group">
-    <label for="exampleFormControlTextarea1">Titulo</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+<div class="modal fade" id="editarPublicacion" tabindex="-1" role="dialog" aria-labelledby="editarPublicacion"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar publicacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Titulo</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Detalle</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Publicar en fecha</label>
+          <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+          <small id="emailHelp" class="form-text text-muted">Ingrese una fecha para que se publique esta publicacion
+          </small>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Habilitar comentarios
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <div class="form-group">
-    <label for="exampleFormControlTextarea1">Detalle</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div> 
-    <div class="form-group">
-      <label for="exampleInputEmail1">Publicar en fecha</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-      <small id="emailHelp" class="form-text text-muted">Ingrese una fecha para que se publique esta publicacion</small>
-    </div>
-    <div class="form-check">
-<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-<label class="form-check-label" for="defaultCheck1">
-Habilitar comentarios
-</label>
-</div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-</div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="agregarComentario" tabindex="-1" role="dialog" aria-labelledby="agregarComentario" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-  <div class="modal-header">
-    <h5 class="modal-title">Comentar publicacion</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-      <div class="form-group">
-    <label for="exampleFormControlTextarea1">Escribe un comentario</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<div class="modal fade" id="agregarComentario" tabindex="-1" role="dialog" aria-labelledby="agregarComentario"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comentar publicacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="comentarioText">Escribe un comentario</label>
+          <textarea class="form-control" id="comentarioText" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-</div>
 </div>
