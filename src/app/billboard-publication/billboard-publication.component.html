@@ -50,12 +50,17 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Titulo</label>
               <textarea [(ngModel)]="newPublication.title" class="form-control" id="exampleFormControlTextarea1"
-                        rows="2" name="title" required></textarea>
+                        rows="1" name="title" required></textarea>
             </div>
             <div class="form-group">
               <label for="descrForm">Detalle</label>
               <textarea [(ngModel)]="newPublication.description" class="form-control" id="descrForm"
-                        rows="3" name="description" required></textarea>
+                        rows="2" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="descrForm">Contenido</label>
+              <textarea [(ngModel)]="newPublication.content" class="form-control" id="descrForm"
+                        rows="3" name="content" required></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Publicar en fecha</label>
