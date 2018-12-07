@@ -5,9 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalsService {
   public is_logged = localStorage.getItem("token") != null
- 
+  public username = localStorage.getItem("username")
+
   getApiUrl(){
     return "http://127.0.0.1:8080/"
   }
   
+  setUsername(username){
+      this.username = username
+  }
 }

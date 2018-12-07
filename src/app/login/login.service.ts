@@ -27,7 +27,7 @@ export class LoginService {
           localStorage.setItem("token", data.token)
           localStorage.setItem("user_id", data.userId)
           localStorage.setItem("username", data.username)
-
+          this.globalsService.username =data.username
           this.globalsService.is_logged = true
           window.location.replace("/")
         } else {
@@ -40,12 +40,14 @@ export class LoginService {
   logoutUser() {
       this.http.get<any>(this.url + "auth/logout?token=" + localStorage.getItem("token")).subscribe(
         data => {
+          this.globalsService.setUsername("")
+          this.globalsService.is_logged = false
           localStorage.clear()
           window.location.replace("/")
         }
       )
   }
-  
+
   getCurrentUserData() {
     return this.http.get<User>(this.url + "usuarios/" + localStorage.getItem("user_id") + "?token=" + localStorage.getItem("token"))
   }

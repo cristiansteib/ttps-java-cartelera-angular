@@ -10,16 +10,18 @@ import { User } from 'src/models/user';
 })
 export class AppComponent implements OnInit  {
  constructor(public globalService: GlobalsService, public loginService: LoginService){}
-  username:string
 
- ngOnInit() {
-   
-}
+  ngOnInit() {
+    
+  }
+
   get isLogged(){
-    this.username = localStorage.getItem("username")
     return this.globalService.is_logged
   }
 
-
+  get username(){
+    return this.globalService.username
+  }
+  
   title = 'cartelera-java-frontend';
 }
