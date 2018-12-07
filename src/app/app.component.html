@@ -6,7 +6,7 @@
         <a *ngIf="!isLogged" class="nav-link" routerLink="auth/login" routerLinkActive="active" ><i class="fas fa-sign-in-alt"></i> Iniciar sesion</a>
         <li *ngIf="isLogged" class="nav-item dropdown hidden-md-down ">
             <a class="nav-link dropdown-toggle active" href="#!user" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="fas fa-user"></i> <span *ngIf="user">{{user.username}}</span>
+                <i class="fas fa-user"></i> <span *ngIf="user">{{username}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" routerLink="user/profile">

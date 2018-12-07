@@ -26,6 +26,8 @@ export class LoginService {
         if (data.status == 'ok') {
           localStorage.setItem("token", data.token)
           localStorage.setItem("user_id", data.userId)
+          localStorage.setItem("username", data.username)
+
           this.globalsService.is_logged = true
           window.location.replace("/")
         } else {
@@ -43,7 +45,7 @@ export class LoginService {
         }
       )
   }
-
+  
   getCurrentUserData() {
     return this.http.get<User>(this.url + "usuarios/" + localStorage.getItem("user_id") + "?token=" + localStorage.getItem("token"))
   }

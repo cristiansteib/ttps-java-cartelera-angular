@@ -10,17 +10,13 @@ import { User } from 'src/models/user';
 })
 export class AppComponent implements OnInit  {
  constructor(public globalService: GlobalsService, public loginService: LoginService){}
- user: User
- 
- ngOnInit() {
+  username:string
 
- this.loginService.getCurrentUserData().subscribe(
-  user => {
-    this.user = user
-  }
-)
+ ngOnInit() {
+   
 }
   get isLogged(){
+    this.username = localStorage.getItem("username")
     return this.globalService.is_logged
   }
 
