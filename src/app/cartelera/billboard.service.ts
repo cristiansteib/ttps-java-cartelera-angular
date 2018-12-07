@@ -17,14 +17,13 @@ export class BillboardService {
     
     url = this.globalsService.getApiUrl()
 
+  getUsersSuscribedToBillboard(id) {
+    return this.http.get<User[]>(this.url + 'carteleras/' + id + '/suscriptores?token=' + localStorage.getItem('token'));
+  }
+
   getBillboardData(id: number): Observable<Billboard> {
     /* Retorna la informacion de una cartelera en particular*/    
     return this.http.get<any>(this.url + 'carteleras/' + id + '?token=' + localStorage.getItem('token'));
-  }
-
-  getBillboardSuscribers(billboardId: number): Observable<User> {
-    /* Retorna un lista de los usuarios que estan suscriptos a la cartelera. */
-    return this.http.get<any>(this.url + 'carteleras/' + billboardId + '/suscriptores?token=' + localStorage.getItem('token'));
   }
 
   getAllBillboards():Observable<Billboard[]> {

@@ -15,6 +15,7 @@ import {NgForm} from '@angular/forms';
 export class BillboardPublicationComponent implements OnInit {
   publications: Publication[] = [];
   billboardSelected: Billboard;
+  usersSuscribed: User[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,6 +40,14 @@ export class BillboardPublicationComponent implements OnInit {
             this.billboardSelected = data;
           }
         );
+
+        /* load all users suscribed to the current billboard */
+        this.billboardService.getUsersSuscribedToBillboard(params['id']).subscribe(
+          data => {
+            this.usersSuscribed = data;
+          }
+        );
+        
 
       }
     });
