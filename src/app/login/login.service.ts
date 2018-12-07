@@ -44,8 +44,8 @@ export class LoginService {
       )
   }
 
-  getUserData():Observable<any>{
-    return this.http.get<JSON>(this.url + "auth/logout?token=" + localStorage.getItem("token"))
+  getCurrentUserData() {
+    return this.http.get<User>(this.url + "usuarios/" + localStorage.getItem("user_id") + "?token=" + localStorage.getItem("token"))
   }
 
 }
