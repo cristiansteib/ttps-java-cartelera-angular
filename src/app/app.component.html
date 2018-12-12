@@ -1,5 +1,5 @@
 <!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
+<ul id="dropdownUser" class="dropdown-content">
         <li><a routerLink="user/profile" ><i class="material-icons left icon-dropdown">settings</i>Configuración</a></li>
         <li class="divider"></li>
         <li><a routerLink="auth/logout" ><i class="material-icons left icon-dropdown">close</i> Cerrar sesion</a></li>
@@ -7,8 +7,8 @@
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Carteleras</a>
       <ul class="right hide-on-med-and-down">
-        <li *ngIf="!isLogged"><a routerLink="auth/login" routerLinkActive="active" > Iniciar sesion</a></li>
-        <li *ngIf="isLogged"><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons left">account_circle</i> {{username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li *ngIf="!isLogged"><a routerLink="auth/login" routerLinkActive="active" >Iniciar sesion</a></li>
+        <li *ngIf="isLogged"><a class="dropdown-trigger" href="#!" data-target="dropdownUser"><i class="material-icons left">account_circle</i> {{username}}<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
