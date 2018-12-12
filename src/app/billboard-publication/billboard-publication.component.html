@@ -1,11 +1,62 @@
-<div class="content-fill">
+<div  class="container content-fill">
+      <div *ngIf="billboardSelected" class="row">
+          <h1 class="header center ">{{billboardSelected.title }}</h1>
+          <h5 class="light center">{{ billboardSelected.description }}</h5>
 
-<div *ngIf="billboardSelected">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Administrar permisos
+              <i class="material-icons right">send</i>
+          </button>  
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Agregar publicacion
+              <i class="material-icons right">send</i>
+          </button>  
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Ver suscriptores
+              <i class="material-icons right">send</i>
+          </button>  
+      
+
+        <!-- Las publicaciones de la cartelera -->
+            <div *ngFor="let publication of publications" class="col s12 m8">
+                <div class="card horizontal">
+                  <div class="card-image">
+                  </div>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                      <span class="card-title activator grey-text text-darken-4">{{publication.title}}</span>
+                      <p>{{publication.content}}</p>
+                      <span class="grey-text text-lighten-1 right">{{publication.publishDate  | date:'medium' }}</span>
+                    </div>
+                    <div class="card-action">
+                      <a routerLink="publication/{{publication.id}}" >Ver</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+  </div>
+</div>
+<!--
+<div class="card mini-publicacion mt-3">
+    <div class="card-body">
+      <h5 class="card-title">{{publication.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{publication.publishDate  | date:'medium' }}</h6>
+      <em *ngIf="publication.description" class="card-text">{{publication.description}}</em>
+      <em *ngIf="!publication.description" class="card-text text-muted">Publicacion sin descripcion.</em>
+      <p *ngIf="publication.content" class="card-text">{{publication.content}}</p>
+      <p *ngIf="!publication.content" class="card-text text-muted">Publicacion sin contenido.</p>
+      <button routerLink="publication/{{publication.id}}" type="button" class="btn btn-outline-primary mr-1">Ver <span
+        class="badge badge-info"> {{publication.countComments}} <i class="far fa-comments"></i></span></button>
+      <button *ngIf="publication.canEdit" type="button" class="btn btn-outline-primary">Editar</button>
+    </div>
+  </div>
+-->
+
   <!-- Botones de administracion para una cartelera -->
+<!--
+<div *ngIf="billboardSelected">
   <div class="col-sm-12 cartelera mb-5">
     <div class="row mb-3">
       <div class="col-sm-12 d-flex justify-content-between">
-        <h2><span class="text-muted">Carterlera:</span> {{billboardSelected.title}}</h2>
         <h2><i class="fas fa-bell"></i></h2>
       </div>
       <div class="col-sm-12">
@@ -19,26 +70,11 @@
     </div>
   </div>
 
-  <!-- Las publicaciones de la cartelera -->
-  <div *ngFor="let publication of publications">
-    <div class="card mini-publicacion mt-3">
-      <div class="card-body">
-        <h5 class="card-title">{{publication.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{publication.publishDate  | date:'medium' }}</h6>
-        <em *ngIf="publication.description" class="card-text">{{publication.description}}</em>
-        <em *ngIf="!publication.description" class="card-text text-muted">Publicacion sin descripcion.</em>
-        <p *ngIf="publication.content" class="card-text">{{publication.content}}</p>
-        <p *ngIf="!publication.content" class="card-text text-muted">Publicacion sin contenido.</p>
-        <button routerLink="publication/{{publication.id}}" type="button" class="btn btn-outline-primary mr-1">Ver <span
-          class="badge badge-info"> {{publication.countComments}} <i class="far fa-comments"></i></span></button>
-        <button *ngIf="publication.canEdit" type="button" class="btn btn-outline-primary">Editar</button>
-      </div>
-    </div>
-  </div>
+
   <div *ngIf="!publications">Aun no hay publicaciones para esta cartelera.</div>
+-->
 
-
-  <!-- Modal para agregar una publicacion-->
+  <!-- Modal para agregar una publicacion-
   <div class="modal fade" id="agregarPublicacion" tabindex="-1" role="dialog" aria-labelledby="agregarPublicacion"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -93,8 +129,8 @@
     </div>
   </div>
 
-
-  <!-- Modal lista de suscriptores-->
+-->
+  <!-- Modal lista de suscriptores
   <div class="modal fade" id="listaSuscriptores" tabindex="-1" role="dialog" aria-labelledby="listaSuscriptores"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -127,3 +163,4 @@
   </div>
 </div>
 </div>
+-->
