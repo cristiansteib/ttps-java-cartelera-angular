@@ -8,9 +8,8 @@
 
     <div class="col s12 m8">
 
-      <!-- Las publicaciones de la cartelera -->
       <div class="col s12">
-        <div class="card horizontal hoverable">
+        <div class="card horizontal ">
           <div class="card-image">
           </div>
           <div class="card-stacked">
@@ -18,14 +17,7 @@
               <p>{{currentPublication.content}}</p>
               <span class="grey-text text-lighten-1 right">{{currentPublication.publishDate  | date:'medium' }}</span>
             </div>
-            <div class="card-action card-action--color-fi-text">
-              <button *ngIf="currentPublication.allowEdit"  type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#editarPublicacion">
-                Editar
-              </button>
 
-              <button *ngIf="currentPublication.allowEdit" type="button" class="btn btn-outline-danger m-1">Eliminar</button>
-              <a> </a>
-            </div>
           </div>
         </div>
 
@@ -102,6 +94,7 @@
       <ul class="collection with-header">
         <li class="collection-header"><h5>Acciones</h5></li>
         <li class="collection-item">Editar</li>
+        <li class="collection-item">Eliminar</li>
 
         <li class="collection-header"><h5>Favoritos</h5></li>
         <li class="collection-item">Alvin</li>
