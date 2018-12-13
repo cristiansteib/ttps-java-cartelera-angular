@@ -19,8 +19,9 @@
     </div>
 </nav>
 <!-- End navbar -->
-
-  <router-outlet></router-outlet>
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <router-outlet  #o="outlet" ></router-outlet>
+    </main>
 
 
     <footer class="page-footer grey darken-1">
@@ -58,4 +59,3 @@
           </div>
         </div>
       </footer>
-      

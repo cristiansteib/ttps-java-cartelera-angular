@@ -11,7 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BillboardComponent } from './cartelera/billboard.component';
 import { BillboardPublicationComponent } from './billboard-publication/billboard-publication.component';
 import { UseraccountComponent } from './useraccount/useraccount.component';
-import { PublicationComponent } from './publication/publication.component'; 
+import { PublicationComponent } from './publication/publication.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { User } from 'src/models/user';
 import { LoginService } from './login/login.service';
 
@@ -27,6 +29,7 @@ import { LoginService } from './login/login.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule

@@ -10,7 +10,7 @@
         </div>
 </div>
 <div class="container content-fill">
-<section class="section min-h-billboard">
+<section class="section">
         
 
 
@@ -36,7 +36,9 @@
                               </div>
                               <div class="card-stacked">
                                     <div class="card-content">
-                                        <h5><i class="right material-icons small color-fi-text">grade</i>
+                                        <h5>
+                                          <span class="star-button" *ngIf="isSuscribed(billboard)"  (click)="unsuscribe(billboard)"><i class="right material-icons small color-fi-text star-button">grade</i></span>
+                                          <span class="star-button" *ngIf="!isSuscribed(billboard)"  (click)="suscribe(billboard)"><i class="right material-icons small color-fi-text star-button">star_border</i></span>
                                        {{billboard.title}}</h5>
                                     <p>{{billboard.description}}</p>
                                     </div>
@@ -65,4 +67,3 @@
 
 </div>
 
- 

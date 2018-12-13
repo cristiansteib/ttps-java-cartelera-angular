@@ -1,39 +1,50 @@
-<div  class="container content-fill">
-      <div *ngIf="billboardSelected" class="row">
-          <h1 class="header center ">{{billboardSelected.title }}</h1>
-          <h5 class="light center">{{ billboardSelected.description }}</h5>
+<div class="container content-fill">
+  <div *ngIf="billboardSelected" class="row">
 
-          <button class="btn waves-effect waves-light" type="submit" name="action">Administrar permisos
-              <i class="material-icons right">send</i>
-          </button>  
+    <!--El titulo de la cartelera -->
 
-          <button class="btn waves-effect waves-light" type="submit" name="action">Agregar publicacion
-              <i class="material-icons right">send</i>
-          </button>  
+    <div class="col s12">
+      <h1 class="header center ">{{billboardSelected.title }}</h1>
+      <h5 class="light center">{{ billboardSelected.description }}</h5>
+    </div>
 
-          <button class="btn waves-effect waves-light" type="submit" name="action">Ver suscriptores
-              <i class="material-icons right">send</i>
-          </button>  
-      
+    <div class="col s12 m8">
 
-        <!-- Las publicaciones de la cartelera -->
-            <div *ngFor="let publication of publications" class="col s12 m8">
-                <div class="card horizontal">
-                  <div class="card-image">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <span class="card-title activator grey-text text-darken-4">{{publication.title}}</span>
-                      <p>{{publication.content}}</p>
-                      <span class="grey-text text-lighten-1 right">{{publication.publishDate  | date:'medium' }}</span>
-                    </div>
-                    <div class="card-action">
-                      <a routerLink="publication/{{publication.id}}" >Ver</a>
-                    </div>
-                  </div>
-                </div>
+      <!-- Las publicaciones de la cartelera -->
+      <div *ngFor="let publication of publications" class="col s12">
+        <div class="card horizontal hoverable">
+          <div class="card-image">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{publication.title}}</span>
+              <p>{{publication.content}}</p>
+              <span class="grey-text text-lighten-1 right">{{publication.publishDate  | date:'medium' }}</span>
             </div>
+            <div class="card-action card-action--color-fi-text">
+              <a routerLink="publication/{{publication.id}}">Ver publicacion</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <ul class="collection with-header">
+        <li class="collection-header"><h5>Acciones</h5></li>
+        <li class="collection-item">Agregar publicacion</li>
+        <li class="collection-item">Ver suscriptores</li>
+        <li class="collection-item">Administrar Permisos</li>
+
+        <li class="collection-header"><h5>Favoritos</h5></li>
+        <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
+      </ul>
+    </div>
   </div>
+
 </div>
 <!--
 <div class="card mini-publicacion mt-3">
@@ -51,7 +62,7 @@
   </div>
 -->
 
-  <!-- Botones de administracion para una cartelera -->
+<!-- Botones de administracion para una cartelera -->
 <!--
 <div *ngIf="billboardSelected">
   <div class="col-sm-12 cartelera mb-5">
@@ -74,93 +85,93 @@
   <div *ngIf="!publications">Aun no hay publicaciones para esta cartelera.</div>
 -->
 
-  <!-- Modal para agregar una publicacion-
-  <div class="modal fade" id="agregarPublicacion" tabindex="-1" role="dialog" aria-labelledby="agregarPublicacion"
-       aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Agregar publicacion</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form #publicationForm="ngForm" (ngSubmit)="onSubmit(publicationForm)">
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Titulo</label>
-              <textarea [(ngModel)]="newPublication.title" class="form-control" id="exampleFormControlTextarea1"
-                        rows="1" name="title" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="descrForm">Detalle</label>
-              <textarea [(ngModel)]="newPublication.description" class="form-control" id="descrForm"
-                        rows="2" name="description" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="descrForm">Contenido</label>
-              <textarea [(ngModel)]="newPublication.content" class="form-control" id="descrForm"
-                        rows="3" name="content" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Publicar en fecha</label>
-              <input [(ngModel)]="newPublication.publishDate" type="datetime-local" class="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" name="publishDate" placeholder="" required>
-              <small id="emailHelp" class="form-text text-muted">Ingrese una fecha de publicacion
-              </small>
-            </div>
-            <div class="form-check">
-              <input [(ngModel)]="newPublication.allowComments" name="allowComments" class="form-check-input" type="checkbox" value=""
-                     id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Habilitar comentarios
-              </label>
-            </div>
-            <div class="form-group mt-3">
-              <button type="submit" class="btn  btn-primary" [disabled]="!publicationForm.form.valid">Guardar</button>
-            </div>
-          </form>
+<!-- Modal para agregar una publicacion-
+<div class="modal fade" id="agregarPublicacion" tabindex="-1" role="dialog" aria-labelledby="agregarPublicacion"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar publicacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #publicationForm="ngForm" (ngSubmit)="onSubmit(publicationForm)">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Titulo</label>
+            <textarea [(ngModel)]="newPublication.title" class="form-control" id="exampleFormControlTextarea1"
+                      rows="1" name="title" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="descrForm">Detalle</label>
+            <textarea [(ngModel)]="newPublication.description" class="form-control" id="descrForm"
+                      rows="2" name="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="descrForm">Contenido</label>
+            <textarea [(ngModel)]="newPublication.content" class="form-control" id="descrForm"
+                      rows="3" name="content" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Publicar en fecha</label>
+            <input [(ngModel)]="newPublication.publishDate" type="datetime-local" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" name="publishDate" placeholder="" required>
+            <small id="emailHelp" class="form-text text-muted">Ingrese una fecha de publicacion
+            </small>
+          </div>
+          <div class="form-check">
+            <input [(ngModel)]="newPublication.allowComments" name="allowComments" class="form-check-input" type="checkbox" value=""
+                   id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Habilitar comentarios
+            </label>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="btn  btn-primary" [disabled]="!publicationForm.form.valid">Guardar</button>
+          </div>
+        </form>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
+</div>
 
 -->
-  <!-- Modal lista de suscriptores
-  <div class="modal fade" id="listaSuscriptores" tabindex="-1" role="dialog" aria-labelledby="listaSuscriptores"
-       aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Usuarios suscriptos a esta cartelera</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <table *ngIf="usersSuscribed && usersSuscribed.length" class="table">
-            <thead>
-              <tr>
-                <th scope="col">Nombre y apellido</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of usersSuscribed">
-                <td>{{ user.name }} {{ user.lastName }}</td>
-              </tr>
-            </tbody>
-          </table>
-          <p *ngIf="!(usersSuscribed && usersSuscribed.length)"> Aun no hay usuarios suscriptos a esta cartelera.</p>
+<!-- Modal lista de suscriptores
+<div class="modal fade" id="listaSuscriptores" tabindex="-1" role="dialog" aria-labelledby="listaSuscriptores"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Usuarios suscriptos a esta cartelera</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table *ngIf="usersSuscribed && usersSuscribed.length" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre y apellido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersSuscribed">
+              <td>{{ user.name }} {{ user.lastName }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="!(usersSuscribed && usersSuscribed.length)"> Aun no hay usuarios suscriptos a esta cartelera.</p>
 
-       </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
-  </div>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+</div>
 </div>
 </div>
 -->

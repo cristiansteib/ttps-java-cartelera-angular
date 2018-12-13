@@ -14,7 +14,8 @@ export class BillboardPublicationService {
   constructor(
     private http: HttpClient,
     private globalsService: GlobalsService
-  ) {}
+  ) {
+  }
 
   url = this.globalsService.getApiUrl();
 
@@ -22,9 +23,9 @@ export class BillboardPublicationService {
   getBillboardPublications(id) {
     return this.http.get<Publication[]>(this.url + 'carteleras/' + id + '/publicaciones?token=' + localStorage.getItem('token'));
   }
-  
-  addBillboardPublication(idBillboard:number, publication: Publication) {
-    return this.http.post<Publication>(this.url + 'carteleras/'+ idBillboard +'/publicaciones/?token=' + localStorage.getItem('token'), publication);
+
+  addBillboardPublication(idBillboard: number, publication: Publication) {
+    return this.http.post<Publication>(this.url + 'carteleras/' + idBillboard + '/publicaciones/?token=' + localStorage.getItem('token'), publication);
   }
 
 }
