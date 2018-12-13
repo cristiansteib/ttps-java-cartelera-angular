@@ -30,7 +30,10 @@
     <app-root></app-root>
 </body>
 <script>
-        $(".dropdown-trigger").dropdown();
-        console.log("run");
+
+  $(document).ready(function(){
+    $(".dropdown-trigger").dropdown();
+    $('.tooltipped').tooltip();
+  });
     </script>
 </html>
