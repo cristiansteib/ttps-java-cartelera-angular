@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+router-outlet ~ *
+  position: absolute
+  height: 100%
+  width: 100%
+
 .content-fill
-    min-height: calc(100vh - (251px + 75px) )
+  min-height: calc(100vh - 640px)
 
 .card .card-action--color-fi-text a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating)
   color: #a30a16
 
 .card .card-action--color-fi-text a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover
-  color: #c90313;
-
+  color: #c90313
 
 .pagination--color-fi li.active
   background-color: #a30a16
