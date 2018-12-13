@@ -1,6 +1,11 @@
 <div class="container content-fill">
   <div class="row">
 
+    <div class="col s12">
+      <h1 class="header center ">{{ currentPublication.title }}</h1>
+      <h5 class="light center">{{ currentPublication.description }}</h5>
+    </div>
+
     <div class="col s12 m8">
 
       <!-- Las publicaciones de la cartelera -->
@@ -10,8 +15,6 @@
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{ currentPublication.title }}</span>
-              <em class="card-text grey-text text-lighten-1">{{ currentPublication.description }}</em>
               <p>{{currentPublication.content}}</p>
               <span class="grey-text text-lighten-1 right">{{currentPublication.publishDate  | date:'medium' }}</span>
             </div>
@@ -19,23 +22,86 @@
               <button *ngIf="currentPublication.allowEdit"  type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#editarPublicacion">
                 Editar
               </button>
-              <button *ngIf="currentPublication.allowComments" type="button" class="btn btn-outline-primary m-1" data-toggle="modal" data-target="#agregarComentario">
-                Comentar
-              </button>
+
               <button *ngIf="currentPublication.allowEdit" type="button" class="btn btn-outline-danger m-1">Eliminar</button>
               <a> </a>
             </div>
           </div>
         </div>
+
+
+        <div  *ngIf="currentPublication.allowComments"  class="row">
+          <form class="col s12 m8">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Escribe tu comentario</label>
+                <button class="btn btn--color-fi waves-effect waves-light right color-fi" type="submit" name="action" > Enviar
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+<!--Comentarios-->
+        <div class="col s12 grey lighten-5">
+        <h5>Comentarios:</h5>
+        <div *ngFor="let comment of currentPublicationComments">
+          <div class="col s12">
+            <div class="card horizontal ">
+              <div class="card-image">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <p class="card-text"> <i class="material-icons">account_circle</i>
+                    {{ comment.user.name | titlecase }} {{comment.user.lastName | titlecase }}</p>
+                  <span class="grey-text text-lighten-1">{{ comment.creationDate | date:'medium'  }}</span>
+                  <hr>
+                  <p class="card-text">{{ comment.text }}</p>
+                </div>
+                <div class="card-action card-action--color-fi-text">
+                  <button class="btn btn-small btn--color-fi waves-effect waves-light left color-fi" type="submit" name="action" >Responder
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div *ngFor="let answer of comment.answers">
+
+              <div class="col s8 right">
+                <div class="card horizontal" style=" margin-top: -7px;">
+                  <div class="card-image">
+                  </div>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                  <p class="card-text"> <i class="material-icons">account_circle</i>
+                    {{ answer.user.name | titlecase }} {{answer.user.lastName | titlecase }}</p>
+                      <span class="grey-text text-lighten-1 ">{{ answer.creationDate | date:'medium'  }}</span>
+                      <hr>
+                      <p class="card-text">{{ answer.answer }}</p>
+                    </div>
+                    <div class="card-action card-action--color-fi-text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
       </div>
     </div>
 
     <div class="col s12 m4">
       <ul class="collection with-header">
         <li class="collection-header"><h5>Acciones</h5></li>
-        <li class="collection-item">Agregar publicacion</li>
-        <li class="collection-item">Ver suscriptores</li>
-        <li class="collection-item">Administrar Permisos</li>
+        <li class="collection-item">Editar</li>
 
         <li class="collection-header"><h5>Favoritos</h5></li>
         <li class="collection-item">Alvin</li>
@@ -49,56 +115,7 @@
 </div>
 
 
-
-<div class="col-sm-12 cartelera mb-5 content-fill">
-
-
-  <!-- comentarios de la publicacion -->
-  <div *ngIf="currentPublicationComments && currentPublicationComments.length" class="offset-md-3 col-md-9 comentarios mt-5 mb-5">
-    <h5><i class="far fa-comments"></i> Comentarios:</h5>
-    <div *ngFor="let comment of currentPublicationComments">
-      <!-- comentario -->
-      <div class="comentario-wrapper mt-2">
-        <div class="card comentario">
-          <div class="card-body">
-            <p class="card-text">{{ comment.text }}</p>
-            <div class="text-right m-0">
-              <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
-              <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
-            </div>
-            <div>
-              <button type="button" class="btn btn-sm btn-outline-secondary m-1">Responder</button>
-              <button type="button" class="btn btn-sm  btn-outline-danger m-1">Eliminar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Respuestas a comentario-->
-      <div *ngFor="let answer of comment.answers">
-        <div class="offset-sm-3 respuesta-wrapper mt-1">
-          <div class="card respuesta">
-            <div class="card-body">
-              <p class="card-text">{{ answer.answer }}</p>
-              <div class="text-right m-0">
-                <p class="card-text">{{ comment.user.name }} {{comment.user.lastName }}</p>
-                <h6 class="card-subtitle mb-2 text-muted">{{ comment.creationDate | date:'medium'  }}</h6>
-              </div>
-              <div>
-                <button type="button" class="btn btn-sm  btn-outline-danger">Eliminar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fin Respuestas a comentario-->
-    </div>
-  </div><!--Fin de comentario -->
-
-
-</div> <!------ END CARTELERA ----->
-
-
-<!-- Modal para editar la publicacion -->
+<!-- Modal para editar la publicacion
 <div class="modal fade" id="editarPublicacion" tabindex="-1" role="dialog" aria-labelledby="editarPublicacion"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -138,7 +155,7 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
+
 <div class="modal fade" id="agregarComentario" tabindex="-1" role="dialog" aria-labelledby="agregarComentario"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -162,3 +179,4 @@
     </div>
   </div>
 </div>
+-->
