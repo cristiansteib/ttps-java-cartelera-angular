@@ -5,7 +5,6 @@ import {Billboard} from 'src/models/Billboard';
 import {BillboardService} from './billboard.service';
 import {User} from '../../../models/user';
 import {NgForm} from '@angular/forms';
-import { BillboardPublicationService } from 'src/app/billboard-publication-xxxxx/billboard-publication.service';
 
 @Component({
   selector: 'app-billboard',
@@ -19,7 +18,6 @@ export class BillboardComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private billboardPublicationService: BillboardPublicationService,
     private billboardService: BillboardService) {
   }
 
@@ -27,7 +25,7 @@ export class BillboardComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
-        
+
         /* load all the data for the current billboard */
         this.billboardService.getBillboardData(params['id']).subscribe(
           data => {
@@ -47,7 +45,7 @@ export class BillboardComponent implements OnInit {
     });
   }
 
-
+/*
   newPublication = new Publication()
   submitted = false
 
@@ -62,7 +60,8 @@ export class BillboardComponent implements OnInit {
         }
       )
     }
-  }
+
+  }*/
 
 
 }
