@@ -14,11 +14,12 @@
   
       <div class="col s12 m4">
         <ul class="collection with-header">
-          <li class="collection-header"><h5>Acciones</h5></li>
-          <li class="collection-item"><a routerLink="agregar-publicacion">Agregar publicacion</a></li>
-          <li class="collection-item"><a routerLink="suscriptores">Ver suscriptores</a></li>
-          <li class="collection-item"><a routerLink="administrar_permisos">Administrar Permisos</a></li>
-  
+          <div *ngIf="billboardSelected && billboardSelected.allowEdit">
+            <li class="collection-header"><h5>Acciones</h5></li>
+            <li class="collection-item"><a routerLink="agregar-publicacion">Agregar publicacion</a></li>
+            <li class="collection-item"><a routerLink="suscriptores">Ver suscriptores</a></li>
+            <li class="collection-item"><a routerLink="administrar_permisos">Administrar Permisos</a></li>
+           </div>
           <li class="collection-header"><h5>Favoritos</h5></li>
           <li class="collection-item">Alvin</li>
           <li class="collection-item">Alvin</li>
