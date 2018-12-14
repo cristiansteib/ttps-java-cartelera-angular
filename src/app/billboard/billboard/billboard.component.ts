@@ -44,24 +44,4 @@ export class BillboardComponent implements OnInit {
       }
     });
   }
-
-/*
-  newPublication = new Publication()
-  submitted = false
-
-  onSubmit(formulario: NgForm) {
-    if(formulario.valid) {
-      this.submitted = true
-      console.log(this.newPublication)
-      this.billboardPublicationService.addBillboardPublication(this.billboardSelected.id, this.newPublication).subscribe(
-        publication => {
-          this.publications.push(publication)
-          formulario.reset
-        }
-      )
-    }
-
-  }*/
-
-
 }
