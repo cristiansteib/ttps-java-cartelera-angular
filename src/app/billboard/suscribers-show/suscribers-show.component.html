@@ -1,3 +1,14 @@
-<p>
-  suscribers-show works!
-</p>
+<div class="container">
+    <div *ngIf="users && users.length" class="row">
+      <h5>Suscriptores de la cartelera: </h5>
+      <div class="col sm12 m4">
+          <ul class="collection" *ngFor="let user of users">
+              <li class="collection-item">{{user.username}} : {{user.name}} {{user.lastName}} </li>
+            </ul>
+      </div>                
+    </div>
+
+    <div *ngIf="!(users && users.length)" class="row">
+        <h5> Aun no hay usuarios suscriptos a esta cartelera :( </h5>
+    </div>
+</div>
