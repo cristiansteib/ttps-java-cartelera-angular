@@ -19,12 +19,9 @@
             <li class="collection-item"><a routerLink="agregar-publicacion">Agregar publicacion</a></li>
             <li class="collection-item"><a routerLink="suscriptores">Ver suscriptores</a></li>
             <li class="collection-item"><a routerLink="administrar_permisos">Administrar Permisos</a></li>
-           </div>
+          </div>
           <li class="collection-header"><h5>Favoritos</h5></li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
+          <li class="collection-item" *ngFor="let billboard of billboardsSuscribed">Alvin</li>
         </ul>
       </div>
     </div>

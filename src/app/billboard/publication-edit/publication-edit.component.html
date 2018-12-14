@@ -1,3 +1,57 @@
-<p>
-  publication-edit works!
-</p>
+<div class="container">
+    <div class="row">
+    <h4>Editar publicacion: </h4>
+    <form class="col s12" #publicationForm="ngForm" (ngSubmit)="onSubmit(publicationForm)">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="title" class="materialize-textarea validate" [(ngModel)]="publication.title"  name="title" value=" "required>
+          </textarea>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea validate" [(ngModel)]="publication.description" name="description" required>
+          </textarea>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="content" class="materialize-textarea validate" [(ngModel)]="publication.content" name="description" required>
+          </textarea>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="input-field col s6 m3">
+         <input [(ngModel)]="publication.date" type="text" class="datepicker validate" id="date"
+               aria-describedby="emailHelp" name="publishDate">
+          <label for="date">Fecha</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input [(ngModel)]="publication.hour" type="text" class="timepicker validate" id="hour"
+                  aria-describedby="emailHelp" name="publishHour">
+             <label for="hour">Hora</label>
+           </div>
+      </div>
+    
+    <div class="row">
+    <div class="col">
+      <h6>Comentarios en la publicacion:</h6>
+        <div class="switch">
+            <label>
+              Desactivado
+              <input [(ngModel)]="publication.allowComments" name="allowComments" type="checkbox">
+              <span class="lever"></span>
+              Activado
+            </label>
+        </div>
+      </div>
+    </div>
+    
+      <button type="submit" class="waves-effect waves-light btn btn--color-fi mr4" [disabled]="!publicationForm.form.valid">Guardar</button>    
+      <button type="reset" class="waves-effect waves-light btn btn--color-fi" (click)="goBack()">Cancelar</button>
+    </form>
+    </div>
+    </div>

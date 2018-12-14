@@ -10,7 +10,7 @@ import { PermissionComponent } from './permission/permission.component';
 const billboardRoutes: Routes = [
   { path: 'carteleras/:id',  component: BillboardComponent },
   { path: 'carteleras/:id_billboard/publicacion/:id_publication',  component: PublicationShowComponent },
-  { path: 'publicacion/editar:id/',  component: PublicationEditComponent },
+  { path: 'carteleras/:id_billboard/publicacion/:id_publication/editar',  component: PublicationEditComponent },
   { path: 'carteleras/:id_billboard/agregar-publicacion',  component: PublicationAddComponent },
   { path: 'carteleras/:id_billboard/suscriptores',  component: SuscribersShowComponent },
   { path: 'carteleras/:id_billboard/administrar_permisos',  component: PermissionComponent },
