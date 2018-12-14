@@ -1,0 +1,16 @@
+<div *ngFor="let publication of publications" class="col s12">
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{publication.title}}</span>
+          <p>{{publication.content}}</p>
+          <span class="grey-text text-lighten-1 right">{{publication.publishDate  | date:'medium' }}</span>
+        </div>
+        <div class="card-action card-action--color-fi-text">
+          <a routerLink="publicacion/{{publication.id}}">Ver publicacion</a>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {BillboardPublicationService} from './billboard-publication.service';
 import {Publication} from 'src/models/Publication';
 import {Billboard} from 'src/models/Billboard';
-import {BillboardService} from '../cartelera/billboard.service';
-import {User} from '../../models/user';
+import {BillboardService} from './billboard.service';
+import {User} from '../../../models/user';
 import {NgForm} from '@angular/forms';
+import { BillboardPublicationService } from 'src/app/billboard-publication-xxxxx/billboard-publication.service';
 
 @Component({
-  selector: 'app-billboard-publication',
-  templateUrl: './billboard-publication.component.html',
-  styleUrls: ['./billboard-publication.component.sass']
+  selector: 'app-billboard',
+  templateUrl: './billboard.component.html',
+  styleUrls: ['./billboard.component.sass']
 })
-export class BillboardPublicationComponent implements OnInit {
+export class BillboardComponent implements OnInit {
   publications: Publication[] = [];
   billboardSelected: Billboard;
   usersSuscribed: User[];
@@ -27,13 +27,7 @@ export class BillboardPublicationComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
-        /* load all publication for the current billboard */
-        this.billboardPublicationService.getBillboardPublications(params['id']).subscribe(
-          data => {
-            this.publications = data;
-          }
-        );
-
+        
         /* load all the data for the current billboard */
         this.billboardService.getBillboardData(params['id']).subscribe(
           data => {

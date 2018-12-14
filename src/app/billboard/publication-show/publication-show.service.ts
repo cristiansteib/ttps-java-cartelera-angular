@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Billboard} from '../../models/Billboard';
-import {Publication} from '../../models/Publication';
 import {HttpClient} from '@angular/common/http';
-import {GlobalsService} from '../globals.service';
+import {GlobalsService} from '../../globals.service';
+import {Observable} from 'rxjs';
+import {Billboard} from 'src/models/Billboard';
+import {Publication} from 'src/models/Publication';
+import {User} from 'src/models/user';
 import { PublicationComment } from 'src/models/PublicationComment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PublicationService {
+export class PublicationShowService {
 
   constructor(
     private http: HttpClient,
