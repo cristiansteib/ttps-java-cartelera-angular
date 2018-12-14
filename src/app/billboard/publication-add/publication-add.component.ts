@@ -26,7 +26,7 @@ export class PublicationAddComponent implements OnInit {
       }
     })
 
-    loadMaterilize(); //global function
+    //loadMaterilize(); //global function
   }
 
   newPublication = new Publication()

@@ -7,6 +7,7 @@ import {Publication} from 'src/models/Publication';
 import {User} from 'src/models/user';
 import { PublicationComment } from 'src/models/PublicationComment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +26,9 @@ export class PublicationShowService {
 
   getCommentsAndResponses(idBillboard:number,  idPublication:number):Observable<PublicationComment[]>  {
     return this.http.get<PublicationComment[]>(this.url + 'carteleras/' + idBillboard + '/publicaciones/'+ idPublication +'/comentarios?token=' + localStorage.getItem('token'));
+  }
+
+  addComment( idPublication:number, comment: PublicationComment):Observable<PublicationComment>  {
+    return this.http.post<PublicationComment>(this.url + 'publicaciones/'+ idPublication +'/comentarios?token=' + localStorage.getItem('token'), comment);
   }
 }

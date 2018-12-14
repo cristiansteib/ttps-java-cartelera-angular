@@ -34,7 +34,7 @@ export class PublicationEditComponent implements OnInit {
         )
       }
     })
-    loadMaterilize(); //global function
+    //loadMaterilize(); //global function
 
   }
 

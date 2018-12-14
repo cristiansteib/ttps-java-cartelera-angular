@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PublicationShowService } from './publication-show.service';
 import { Billboard } from 'src/models/Billboard';
 import { BillboardService } from '../billboard/billboard.service';
+import { Location } from '@angular/common';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-publication-show',
@@ -14,14 +16,26 @@ import { BillboardService } from '../billboard/billboard.service';
 export class PublicationShowComponent implements OnInit {
   currentPublication: Publication;
   currentPublicationComments: PublicationComment[];
+  newComment = new PublicationComment('')
 
   constructor(
+    private location: Location,
     private activatedRoute: ActivatedRoute,
     private billboardService: BillboardService,
     private publicationService: PublicationShowService) {
   }
 
   billboardSelected: Billboard;
+
+  getAllComments() {
+    this.activatedRoute.params.subscribe((params) => {
+        this.publicationService.getCommentsAndResponses(params['id_billboard'], params['id_publication']).subscribe(
+          publication => {
+            this.currentPublicationComments = publication;
+          }
+        );
+      })
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -43,6 +57,18 @@ export class PublicationShowComponent implements OnInit {
 
       }
     });
+  }
+
+  onSubmitComment(formulario: NgForm) {
+    if(formulario.valid) {
+      this.publicationService.addComment(this.currentPublication.id, this.newComment).subscribe(
+        comment => {
+          formulario.reset
+          this.newComment = new PublicationComment('')
+          this.getAllComments()
+        }
+      )
+    }
   }
 
 }
