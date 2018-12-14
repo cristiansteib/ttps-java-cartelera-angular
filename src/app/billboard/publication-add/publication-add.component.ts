@@ -37,10 +37,10 @@ export class PublicationAddComponent implements OnInit {
 
     if(formulario.valid) {
       this.submitted = true
-      console.log(this.newPublication)
       this.publicationAddService.addBillboardPublication(this.billboardSelectedId, this.newPublication).subscribe(
         publication => {
           formulario.reset
+          this.location.back()
         }
       )
     }
