@@ -2,8 +2,8 @@
     <div *ngIf="users && users.length" class="row">
       <h5>Suscriptores de la cartelera: </h5>
       <div class="col sm12 m4">
-          <ul class="collection" *ngFor="let user of users">
-              <li class="collection-item">{{user.username}} : {{user.name}} {{user.lastName}} </li>
+          <ul class="collection" >
+              <li class="collection-item" *ngFor="let user of users">  <i class="material-icons left color-fi-text">account_circle</i><strong>{{user.username}}</strong>: {{user.name}} {{user.lastName}} </li>
             </ul>
       </div>                
     </div>
