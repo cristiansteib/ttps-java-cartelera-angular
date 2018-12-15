@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SuscribersShowService } from './suscribers-show.service';
 import { User } from 'src/models/user';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-suscribers-show',
@@ -13,7 +14,8 @@ export class SuscribersShowComponent implements OnInit {
 
   constructor(
     private suscribersShowService : SuscribersShowService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -26,8 +28,10 @@ export class SuscribersShowComponent implements OnInit {
         )
       }
     })
+  }
 
-
+  goBack(): void{
+    this.location.back()
   }
 
 }

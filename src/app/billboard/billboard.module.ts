@@ -10,6 +10,7 @@ import { PublicationAddComponent } from './publication-add/publication-add.compo
 import { FormsModule } from '@angular/forms';
 import { SuscribersShowComponent } from './suscribers-show/suscribers-show.component';
 import { PermissionComponent } from './permission/permission.component';
+import { BillboardSuscribedListComponent } from './billboard-suscribed-list/billboard-suscribed-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PermissionComponent } from './permission/permission.component';
     PublicationEditComponent,
     PublicationAddComponent,
     SuscribersShowComponent,
-    PermissionComponent
+    PermissionComponent,
+    BillboardSuscribedListComponent
   ],
   imports: [
     CommonModule,

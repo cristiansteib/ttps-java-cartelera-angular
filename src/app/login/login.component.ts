@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) =>{
-      if (params['action'] == 'logout') { this.logout(); }
+      if (params['action'] == 'logout') { 
+        this.logout(); 
+      }
   });
 
   }

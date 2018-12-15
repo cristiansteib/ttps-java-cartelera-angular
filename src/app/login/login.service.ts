@@ -7,6 +7,7 @@ import { GlobalsService } from '../globals.service';
 import { Observable } from 'rxjs/Observable';
 import { LoginComponent } from './login.component';
 import {BehaviorSubject} from 'rxjs';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private globalsService: GlobalsService
+    private globalsService: GlobalsService,
+    private location: Location
     ) {} 
     url = this.globalsService.getApiUrl()
   /** POST: Login a user*/
@@ -43,7 +45,6 @@ export class LoginService {
           this.globalsService.setUsername("")
           this.globalsService.is_logged = false
           localStorage.clear()
-          window.location.replace("/")
         }
       )
   }

@@ -57,6 +57,7 @@ export class PublicationShowComponent implements OnInit {
 
       }
     });
+    //loadMaterilize()
   }
 
   onSubmitComment(formulario: NgForm) {
@@ -70,5 +71,8 @@ export class PublicationShowComponent implements OnInit {
       )
     }
   }
-
+  
+  goBack(): void{
+    this.location.back()
+  }
 }
