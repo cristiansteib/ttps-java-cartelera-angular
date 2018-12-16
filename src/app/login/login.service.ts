@@ -63,10 +63,12 @@ export class LoginService {
   }
 
   public fecthUserData() {
+
     this.getCurrentUserData().subscribe( 
       user => {
         this.useraccountService.setUser(user)
       },
+      
       error => {
         console.log("error fetching user data")
         setTimeout(() => {
