@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Billboard } from 'src/models/Billboard';
 import { BillboardSuscribedListService } from './billboard-suscribed-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-billboard-suscribed-list',
@@ -11,7 +12,7 @@ export class BillboardSuscribedListComponent implements OnInit {
   billboards: Billboard[] = undefined
   
   constructor(
-    private billboardSuscribedListService: BillboardSuscribedListService
+    private billboardSuscribedListService: BillboardSuscribedListService,
   ) { }
 
   ngOnInit() {
@@ -20,7 +21,6 @@ export class BillboardSuscribedListComponent implements OnInit {
         this.billboards = data;
       }
     )
-  
-    }
+  }
   
   }

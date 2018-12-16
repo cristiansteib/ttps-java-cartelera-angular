@@ -37,10 +37,10 @@ export class BillboardRemoveComponent implements OnInit {
       data => {
         this.feedbackMsg= "Cartelera borrada, será redirigido al inicio."
         this.feedbackMsgColor = "green"
-        return of(true).pipe(
-          delay(2000),
-          tap(val => this.router.navigate(['/carteleras']))
-        );
+        setTimeout(() => {
+          this.router.navigate(['/carteleras'])
+        }, 2000); 
+       
         
       },
 

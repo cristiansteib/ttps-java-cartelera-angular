@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   get isAdmin() {
-    return this.userAccountService.currentUser && this.userAccountService.currentUser.hasOwnProperty('isAdmin') && this.userAccountService.currentUser.isAdmin;
+    return this.userAccountService.currentUser && this.userAccountService.currentUser.hasOwnProperty('admin') && this.userAccountService.currentUser.admin;
   }
 
   get isLogged() {
