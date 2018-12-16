@@ -30,5 +30,8 @@ export class PublicationListComponent implements OnInit {
     });
   }
 
+  get hasPublications(): boolean {
+    return this.publications.length > 0
+  }
 
 }
