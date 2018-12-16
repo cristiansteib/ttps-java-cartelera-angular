@@ -74,7 +74,6 @@ export class LoginService {
           this.fecthUserData()
         }, 2000); 
       }
-    
       )
   }
 }
