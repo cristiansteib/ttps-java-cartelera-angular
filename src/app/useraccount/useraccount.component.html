@@ -1,40 +1,30 @@
-<div class="card col-sm-8">
-  <div class="container">
-      <form action="#" method="post">
+<div class="container">
+        <div class="row ">
+        <form class="col s12 m5 offset-m3 mt5" >
           <h3>Cambiar contraseña</h3>
-          <div class="form-group col-md-8">
-              <label for="password_actual">Contraseña actual</label>
-              <input type="password" class="form-control" id="password_actual" placeholder="Contraseña"
-                     name="password_old" required>
-          </div>
-          <div class="form-group col-md-8">
-              <label for="password">Nueva contraseña</label>
-              <input type="password" class="form-control" id="password" placeholder="Contraseña"
-                     name="password_new" required>
-          </div>
-          <div class="form-group col-md-8">
-              <label for="re_password">Confirmar contraseña</label>
-              <input type="password" class="form-control" id="re_password" placeholder="Repita la contraseña"
-                     name="password_re" required>
-          </div>
-          <div class="form-group col-md-8 d-none" id="error_ms">
-              <p class="text-danger">Las contraseñas no coinciden.</p>
-          </div>
-          <div class="card col-sm-8">
-              <div class="card-body">
-                  <h5 class="card-title">Metodo de notificacion</h5>
-              <select >
-                  <option>mail - usuario@mail.com</option>
-                  <option>facebook - facebook_account</option>
-                  <option>twitter - @usuario</option>
-              </select>
-              </div>
-          </div>
 
-          <div class="col-md-3">
-              <button type="submit" class="btn btn-primary">Guardar</button>
-          </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                            <input id="old_password" required type="password" class="validate">
+                            <label for="old_password" >Contraseña actual</label>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="input-field col s12">
+                            <input id="new_password" required type="password" class="validate">
+                            <label for="new_password">Contraseña nueva</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="input-field col s12">
+                            <input id="new_password_r" required  type="password" class="validate">
+                            <label for="new_password_r">Repita Contraseña nueva</label>
+                        </div>
+                </div>
+
+                <button type="submit" class="waves-effect waves-light btn btn--color-fi mr4" >Guardar</button>    
 
       </form>
   </div>
