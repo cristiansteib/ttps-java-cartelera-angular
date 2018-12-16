@@ -18,6 +18,7 @@
     </div>
 
     <div *ngIf="billboards" class="row">
+      <em *ngIf="isLogged" class="left"> <i class=" material-icons small color-fi-text" >star_border</i>Para suscribirte/desuscribirte clickea en la estrella de la cartelera.</em>
       <button class="btn btn--color-fi waves-effect waves-light right" (click)="update()"><i class="material-icons right">sync</i> Actualizar</button>
     </div>
 
@@ -29,12 +30,10 @@
         <div class="card-stacked">
           <div class="card-content">
             <h5>
-              <span class="star-button" *ngIf="isLogged && isSuscribed(billboard)" (click)="unsuscribe(billboard)"><i
-                class="right material-icons small color-fi-text star-button tooltipped" data-position="bottom"
-                data-tooltip="Quitar suscripcion.">grade</i></span>
-              <span class="star-button" *ngIf="isLogged && !isSuscribed(billboard)" (click)="suscribe(billboard)"><i
-                class="right material-icons small color-fi-text star-button tooltipped" data-position="bottom"
-                data-tooltip="Suscribirse a esta cartelera.">star_border</i></span>
+              <span class="star-button" *ngIf="isLogged && isSuscribed(billboard)" (click)="unsuscribe(billboard)">
+                <i class="right material-icons small color-fi-text star-button " >grade</i></span>
+              <span class="star-button" *ngIf="isLogged && !isSuscribed(billboard)" (click)="suscribe(billboard)">
+                <i class="right material-icons small color-fi-text star-button " >star_border</i></span>
               {{billboard.title}}</h5>
             <p>{{billboard.description}}</p>
           </div>
