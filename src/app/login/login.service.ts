@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { GlobalsService } from '../globals.service';
 import { Observable } from 'rxjs/Observable';
 import { LoginComponent } from './login.component';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, observable} from 'rxjs';
 import { Location } from '@angular/common';
 import { UseraccountService } from '../useraccount/useraccount.service';
 import { Router } from '@angular/router';
@@ -59,6 +59,9 @@ export class LoginService {
   }
 
   getCurrentUserData() {
+    if (!localStorage.getItem("user_id") || !localStorage.getItem("token")){
+      throw Observable.throw(false); 
+    }
     return this.http.get<User>(this.url + "usuarios/" + localStorage.getItem("user_id") + "?token=" + localStorage.getItem("token"))
   }
 
@@ -69,7 +72,9 @@ export class LoginService {
       },
       error => {
         console.log("error fetching user data")
-        this.fecthUserData()
+        setTimeout(() => {
+          this.fecthUserData()
+        }, 2000); 
       }
     
       )
