@@ -14,14 +14,16 @@
   
       <div class="col s12 m6 l4">
         <ul class="collection with-header">
-          <div *ngIf="billboardSelected && billboardSelected.allowEdit">
+          <span *ngIf="billboardSelected && billboardSelected.allowEdit">
             <li class="collection-header"><h5>Acciones</h5></li>
             <li class="collection-item"><a routerLink="agregar-publicacion">Agregar publicacion</a></li>
             <li class="collection-item"><span *ngIf="usersSuscribed" class="badge">{{usersSuscribed.length}}</span><a routerLink="suscriptores">Ver suscriptores</a></li>
-            <li class="collection-item"><a routerLink="administrar_permisos">Administrar Permisos</a></li>
-          </div>
-          <app-billboard-suscribed-list></app-billboard-suscribed-list>
+            <li class="collection-item"><a routerLink="administrar_permisos">Administrar permisos</a></li>
+            <li class="collection-item"><a routerLink="administrar_permisos">Eliminar cartelera </a></li>
+          </span>
         </ul>
+
+        <app-billboard-suscribed-list></app-billboard-suscribed-list>
       </div>
     </div>
   

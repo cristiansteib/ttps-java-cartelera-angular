@@ -20,7 +20,7 @@ export class BillboardSuscribedListService {
   url = this.globalsService.getApiUrl();
 
   getBillboardsSuscribed(): Observable<Billboard[]> {
-    return this.http.get<any>(this.url + 'carteleras/suscribed?token=' + localStorage.getItem('token'));
+    return this.http.get<any>(this.url + 'carteleras/suscripciones?token=' + localStorage.getItem('token'));
   }
 
 }
