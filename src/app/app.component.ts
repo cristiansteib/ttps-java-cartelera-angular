@@ -3,6 +3,7 @@ import {GlobalsService} from './globals.service';
 import {LoginService} from './login/login.service';
 import {fadeAnimation} from './animations';
 import {User} from 'src/models/user';
+import { UseraccountService } from './useraccount/useraccount.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,19 @@ import {User} from 'src/models/user';
   animations: [fadeAnimation] // register the animation
 })
 export class AppComponent implements OnInit {
-  constructor(public globalService: GlobalsService, public loginService: LoginService) {
+
+  constructor(
+    public globalService: GlobalsService, 
+    public loginService: LoginService,
+    private userAccountService: UseraccountService
+    ) {
   }
 
   ngOnInit() {
+    this.loginService.fecthUserData()
+  }
+  get isAdmin() {
+    return this.userAccountService.currentUser && this.userAccountService.currentUser.isAdmin;
   }
 
   get isLogged() {

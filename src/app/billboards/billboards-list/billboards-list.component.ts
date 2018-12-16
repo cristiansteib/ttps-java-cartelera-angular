@@ -36,6 +36,12 @@ export class BillboardsListComponent implements OnInit {
     );
   }
 
+  update() {
+    this.updateAllExistingBillboards();
+    this.updateBillboardsIdsSuscribed();
+  }
+
+
   ngOnInit() {
     this.updateAllExistingBillboards();
     this.updateBillboardsIdsSuscribed();

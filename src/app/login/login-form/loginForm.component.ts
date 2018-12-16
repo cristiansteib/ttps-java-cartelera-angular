@@ -19,7 +19,7 @@ import { GlobalsService } from 'src/app/globals.service';
 
     public invalidLogin_ = false
 
-    model = new User(null,'','')
+    model = new User(null,'')
     submitted = false
     
     onSubmit(formulario: NgForm) {
