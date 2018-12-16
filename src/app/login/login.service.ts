@@ -35,8 +35,9 @@ export class LoginService {
           localStorage.setItem("username", data.username)
           this.globalsService.username = data.username
           this.globalsService.is_logged = true
-          this.fecthUserData()
-          this.router.navigate(['/carteleras'])
+          //this.fecthUserData()
+          window.location.replace("/carteleras")
+          //this.router.navigate(['/carteleras'])
         } else {
           window.alert("Usuario invalido.")
         }
@@ -51,6 +52,7 @@ export class LoginService {
         data => {
           this.globalsService.setUsername("")
           this.globalsService.is_logged = false
+          this.useraccountService.setUser(undefined)
           localStorage.clear()
         }
       )

@@ -23,8 +23,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.loginService.fecthUserData()
   }
+
   get isAdmin() {
-    return this.userAccountService.currentUser && this.userAccountService.currentUser.isAdmin;
+    return this.userAccountService.currentUser && this.userAccountService.currentUser.hasOwnProperty('isAdmin') && this.userAccountService.currentUser.isAdmin;
   }
 
   get isLogged() {
