@@ -68,7 +68,6 @@ export class LoginService {
       user => {
         this.useraccountService.setUser(user)
       },
-      
       error => {
         console.log("error fetching user data")
         setTimeout(() => {
