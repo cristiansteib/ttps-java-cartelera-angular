@@ -40,8 +40,6 @@ export class BillboardRemoveComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['/carteleras'])
         }, 2000); 
-       
-        
       },
 
       error => {

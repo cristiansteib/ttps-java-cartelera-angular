@@ -5,6 +5,13 @@
       <div class="col s12">
         <h1 class="header center ">{{billboardSelected.title }}</h1>
         <h5 class="light center">{{ billboardSelected.description }}</h5>
+        <p class="center">
+            <em  *ngIf="isSuscribed()" >
+                <i class=" material-icons small color-fi-text star-button " (click)="unsuscribe()" >grade</i><strong>Estas suscripto a esta cartelera</strong>, presione la estrella para desuscribirse.</em>
+            <em  *ngIf="!isSuscribed()" >
+              <i class=" material-icons small color-fi-text star-button " (click)="suscribe()">star_border</i><strong>No esta suscripto a esta cartelera</strong>, presione la estrella para suscribirse.</em>
+          </p>
+
       </div>
   
       <div class="col s12 m8">
