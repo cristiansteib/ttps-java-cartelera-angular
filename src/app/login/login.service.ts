@@ -59,9 +59,6 @@ export class LoginService {
   }
 
   getCurrentUserData() {
-    if (!localStorage.getItem("user_id") || !localStorage.getItem("token")){
-      throw Observable.throw(false); 
-    }
     return this.http.get<User>(this.url + "usuarios/" + localStorage.getItem("user_id") + "?token=" + localStorage.getItem("token"))
   }
 
