@@ -69,7 +69,6 @@ export class LoginService {
       },
       error => {
         console.log("error fetching user data")
-        
         setTimeout(() => {
           this.fecthUserData()
         }, 2000); 
