@@ -3,6 +3,7 @@ import { Billboard } from 'src/models/Billboard';
 import { Location } from '@angular/common';
 import { BillboardAddService } from './billboard-add.service';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-billboard-add',
@@ -14,6 +15,7 @@ export class BillboardAddComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private router: Router,
     private billboardAddService: BillboardAddService
   ) { }
 
@@ -26,7 +28,7 @@ export class BillboardAddComponent implements OnInit {
       this.billboardAddService.create(this.newBillboard).subscribe(
         billboard => {
           formulario.reset
-          this.location.go("carteleras/" + billboard.id)
+          this.router.navigate(['/carteleras', billboard.id]);
         }
       )
     }
