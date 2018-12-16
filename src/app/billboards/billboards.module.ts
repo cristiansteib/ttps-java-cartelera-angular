@@ -11,7 +11,6 @@ import { FooterComponent } from 'src/app/footer/footer.component';
     FooterComponent,
     BillboardsComponent,
     BillboardsListComponent,
-    
   ],
   imports: [
     CommonModule,

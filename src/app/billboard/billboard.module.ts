@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SuscribersShowComponent } from './suscribers-show/suscribers-show.component';
 import { PermissionComponent } from './permission/permission.component';
 import { BillboardSuscribedListComponent } from './billboard-suscribed-list/billboard-suscribed-list.component';
+import { BillboardAddComponent } from './billboard-add/billboard-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BillboardSuscribedListComponent } from './billboard-suscribed-list/bill
     PublicationAddComponent,
     SuscribersShowComponent,
     PermissionComponent,
-    BillboardSuscribedListComponent
+    BillboardSuscribedListComponent,
+    BillboardAddComponent
   ],
   imports: [
     CommonModule,

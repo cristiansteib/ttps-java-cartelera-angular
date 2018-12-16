@@ -8,6 +8,7 @@
     <div class="nav-wrapper container"><a id="logo-container" routerLink="/" class="brand-logo">Carteleras</a>
       <ul class="right hide-on-med-and-down">
         <li *ngIf="!isLogged"><a routerLink="auth/login" routerLinkActive="active" >Iniciar sesion</a></li>
+        <li *ngIf="isLogged"><a routerLink="carteleras/nueva" routerLinkActive="active" >Nueva cartelera</a></li>
         <li *ngIf="isLogged"><a class="dropdown-trigger" href="#!" data-target="dropdownUser"><i class="material-icons left">account_circle</i> {{username}}<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 

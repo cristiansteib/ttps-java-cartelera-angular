@@ -6,8 +6,10 @@ import { PublicationEditComponent } from './publication-edit/publication-edit.co
 import { PublicationAddComponent } from './publication-add/publication-add.component';
 import { SuscribersShowComponent } from './suscribers-show/suscribers-show.component';
 import { PermissionComponent } from './permission/permission.component';
+import { BillboardAddComponent } from './billboard-add/billboard-add.component';
 
 const billboardRoutes: Routes = [
+  { path: 'carteleras/nueva',  component: BillboardAddComponent, pathMatch: 'full'},
   { path: 'carteleras/:id',  component: BillboardComponent },
   { path: 'carteleras/:id_billboard/publicacion/:id_publication',  component: PublicationShowComponent },
   { path: 'carteleras/:id_billboard/publicacion/:id_publication/editar',  component: PublicationEditComponent },
