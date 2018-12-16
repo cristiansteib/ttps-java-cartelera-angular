@@ -12,6 +12,7 @@ import { SuscribersShowComponent } from './suscribers-show/suscribers-show.compo
 import { PermissionComponent } from './permission/permission.component';
 import { BillboardSuscribedListComponent } from './billboard-suscribed-list/billboard-suscribed-list.component';
 import { BillboardAddComponent } from './billboard-add/billboard-add.component';
+import { BillboardRemoveComponent } from './billboard-remove/billboard-remove.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BillboardAddComponent } from './billboard-add/billboard-add.component';
     SuscribersShowComponent,
     PermissionComponent,
     BillboardSuscribedListComponent,
-    BillboardAddComponent
+    BillboardAddComponent,
+    BillboardRemoveComponent
   ],
   imports: [
     CommonModule,

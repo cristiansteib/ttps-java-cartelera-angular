@@ -7,9 +7,11 @@ import { PublicationAddComponent } from './publication-add/publication-add.compo
 import { SuscribersShowComponent } from './suscribers-show/suscribers-show.component';
 import { PermissionComponent } from './permission/permission.component';
 import { BillboardAddComponent } from './billboard-add/billboard-add.component';
+import { BillboardRemoveComponent } from './billboard-remove/billboard-remove.component';
 
 const billboardRoutes: Routes = [
   { path: 'carteleras/nueva',  component: BillboardAddComponent, pathMatch: 'full'},
+  { path: 'carteleras/:id/eliminar',  component: BillboardRemoveComponent, pathMatch: 'full'},
   { path: 'carteleras/:id',  component: BillboardComponent },
   { path: 'carteleras/:id_billboard/publicacion/:id_publication',  component: PublicationShowComponent },
   { path: 'carteleras/:id_billboard/publicacion/:id_publication/editar',  component: PublicationEditComponent },

@@ -1,0 +1,20 @@
+<div class="container content-fill">
+    <div  class="row">
+      <div class="col s12 center">
+        <h2 class="header center ">Estas a punto de borrar la cartelera, estas seguro?</h2>
+        <button class="waves-effect waves-light btn btn--color-fi mr4 btn-large" (click)="delete()">Si </button>    
+        <button class="waves-effect waves-light btn btn--color-fi mr4 btn-large" (click)="cancel()"> No</button>    
+      </div>
+    </div>
+
+    <div *ngIf="feedbackMsg" class="col s12 center {{feedbackMsgColor}} lighten-3 p5 row">
+        <h4>{{feedbackMsg}}</h4>
+    </div>
+
+    <div class="col s12 center grey lighten-3 p5">
+      <h5> Esta accion sera registrada en el sistema. </h5>
+        <h5>El administrador puede recuperar esta cartelera, si se lo solicitas en menos de 1 mes.</h5>
+    </div>
+
+
+</div>
