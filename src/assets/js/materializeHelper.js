@@ -5,4 +5,5 @@ function loadMaterilize() {
     $('.timepicker').timepicker();
     $('.collapsible').collapsible();
     $('.modal').modal();
+    $('.sidenav').sidenav();
 }
