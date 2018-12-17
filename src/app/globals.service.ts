@@ -8,7 +8,8 @@ export class GlobalsService {
   public username = localStorage.getItem("username")
 
   getApiUrl(){
-    return "http://127.0.0.1:8080/"
+    return "https://tomcat.debuguear.com/carteleras/"
+     //"http://127.0.0.1:8080/"
   }
   
   setUsername(username){
