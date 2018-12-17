@@ -4,6 +4,7 @@ import {LoginService} from './login/login.service';
 import {fadeAnimation} from './animations';
 import {User} from 'src/models/user';
 import { UseraccountService } from './useraccount/useraccount.service';
+declare var loadMaterilize: any;
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.fecthUserData()
+    loadMaterilize()
+
   }
 
   get isAdmin() {
