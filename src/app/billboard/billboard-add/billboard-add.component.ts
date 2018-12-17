@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { BillboardAddService } from './billboard-add.service';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
+declare var loadMaterilize: any;
 
 @Component({
   selector: 'app-billboard-add',
@@ -21,6 +22,7 @@ export class BillboardAddComponent implements OnInit {
 
 
   ngOnInit() {
+    loadMaterilize()
   }
 
   onSubmit(formulario: NgForm) {

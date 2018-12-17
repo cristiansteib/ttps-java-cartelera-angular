@@ -5,6 +5,7 @@ import { Publication } from 'src/models/Publication';
 import { ActivatedRoute } from '@angular/router';
 import { PublicationEditService } from './publication-edit.service';
 import { PublicationShowService } from '../publication-show/publication-show.service';
+declare var loadMaterilize: any;
 
 @Component({
   selector: 'app-publication-edit',
@@ -34,8 +35,7 @@ export class PublicationEditComponent implements OnInit {
         )
       }
     })
-    //loadMaterilize(); //global function
-
+    loadMaterilize(); //global function
   }
 
   onSubmit(formulario: NgForm) {

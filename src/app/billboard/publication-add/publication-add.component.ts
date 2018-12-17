@@ -4,6 +4,7 @@ import { Publication } from 'src/models/Publication';
 import { Location } from '@angular/common';
 import { PublicationAddService } from './publication-add.service';
 import { ActivatedRoute } from '@angular/router';
+declare var loadMaterilize: any;
 
 @Component({
   selector: 'app-publication-add',
@@ -25,8 +26,7 @@ export class PublicationAddComponent implements OnInit {
         this.billboardSelectedId = params['id_billboard']
       }
     })
-
-    //loadMaterilize(); //global function
+    loadMaterilize(); //global function
   }
 
   newPublication = new Publication()
