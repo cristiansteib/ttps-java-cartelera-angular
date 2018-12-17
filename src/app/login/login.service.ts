@@ -71,7 +71,9 @@ export class LoginService {
       error => {
         console.log("error fetching user data")
         setTimeout(() => {
-          this.fecthUserData()
+          if(localStorage.getItem('user_id') && localStorage.getItem("token")) {
+            this.fecthUserData()
+          }
         }, 2000); 
       }
       )
