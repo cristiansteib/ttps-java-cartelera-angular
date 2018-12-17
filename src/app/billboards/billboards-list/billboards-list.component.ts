@@ -12,7 +12,7 @@ import {Billboard} from '../../../models/Billboard';
 export class BillboardsListComponent implements OnInit {
   billboards: Billboard[];
   suscribedBillboardsIds: number[];
-
+  isUpdating: Boolean = false
   constructor(private billboardService: BillboardsService,
               private globalService: GlobalsService,
               private activatedRoute: ActivatedRoute) {
@@ -29,9 +29,11 @@ export class BillboardsListComponent implements OnInit {
 
   updateAllExistingBillboards() {
     // fill the array with all billboards
+    this.isUpdating = true
     this.billboardService.getAllBillboards().subscribe(
       billboards => {
         this.billboards = billboards;
+        this.isUpdating = false
       }
     );
   }

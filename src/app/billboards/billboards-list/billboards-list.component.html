@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col s12  center">
-      <div *ngIf="!billboards" class="preloader-wrapper big active center">
+      <div *ngIf="isUpdating || !billboards" class="preloader-wrapper big active center">
         <div class="spinner-layer spinner-blue-only">
           <div class="circle-clipper left">
             <div class="circle"></div>
@@ -18,7 +18,7 @@
     </div>
 
     <div *ngIf="billboards" class="row">
-      <em *ngIf="isLogged" class="left"> <i class=" material-icons small color-fi-text" >star_border</i>Para suscribirte/desuscribirte clickea en la estrella de la cartelera.</em>
+      <em *ngIf="isLogged" class="left"> <i class="material-icons small color-fi-text" >star_border</i>Para suscribirte/desuscribirte clickea en la estrella de la cartelera.</em>
       <button class="btn btn--color-fi waves-effect waves-light right" (click)="update()"><i class="material-icons right">sync</i> Actualizar</button>
     </div>
 
@@ -31,9 +31,9 @@
           <div class="card-content">
             <h5>
               <span class="star-button" *ngIf="isLogged && isSuscribed(billboard)" (click)="unsuscribe(billboard)">
-                <i class="right material-icons small color-fi-text star-button " >grade</i></span>
+                <i class="right material-icons small color-fi-text star-button ">grade</i></span>
               <span class="star-button" *ngIf="isLogged && !isSuscribed(billboard)" (click)="suscribe(billboard)">
-                <i class="right material-icons small color-fi-text star-button " >star_border</i></span>
+                <i class="right material-icons small color-fi-text star-button ">star_border</i></span>
               {{billboard.title}}
             </h5>
             <p>{{billboard.description}}</p>
