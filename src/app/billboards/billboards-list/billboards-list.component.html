@@ -28,10 +28,10 @@
           <div class="card-content">
 
             <h5>              
-              <p class="star-button" *ngIf="isLogged && isSuscribed(billboard)" (click)="unsuscribe(billboard)">
-                <i class="right material-icons small color-fi-text star-button ">grade</i></p>
-              <p class="star-button" *ngIf="isLogged && !isSuscribed(billboard)" (click)="suscribe(billboard)">
-                <i class="right material-icons small color-fi-text star-button ">star_border</i></p>
+              <span class="star-button" *ngIf="isLogged && isSuscribed(billboard)" (click)="unsuscribe(billboard)">
+                <i class="right material-icons small color-fi-text star-button ">grade</i></span>
+              <span class="star-button" *ngIf="isLogged && !isSuscribed(billboard)" (click)="suscribe(billboard)">
+                <i class="right material-icons small color-fi-text star-button ">star_border</i></span>
                 {{billboard.title}}
               </h5>
             <p>{{billboard.description}}</p>
