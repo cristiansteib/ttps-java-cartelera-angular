@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   auth_token = null
 
-  constructor(public loginService: LoginService, private activatedRoute: ActivatedRoute) { }
+  constructor(public loginService: LoginService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) =>{
@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   logout(){
     this.loginService.logoutUser();
+    this.router.navigate(['/carteleras'])
   }
 
 }
