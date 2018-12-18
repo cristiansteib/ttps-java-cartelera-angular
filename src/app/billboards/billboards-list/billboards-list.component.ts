@@ -50,6 +50,10 @@ export class BillboardsListComponent implements OnInit {
   }
 
   unsuscribe(billboard: Billboard) {
+    this.suscribedBillboardsIds = this.suscribedBillboardsIds.filter(
+      id => {
+      return (id != billboard.id)
+    })
     this.billboardService.unsuscribeToBillboard(billboard).subscribe(
       data => {
         this.suscribedBillboardsIds = data;
@@ -59,6 +63,7 @@ export class BillboardsListComponent implements OnInit {
   }
 
   suscribe(billboard: Billboard) {
+    this.suscribedBillboardsIds.push(billboard.id)
     this.billboardService.suscribeToBillboard(billboard).subscribe(
       data => {
         this.suscribedBillboardsIds = data;
