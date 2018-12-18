@@ -1,5 +1,8 @@
 <div *ngIf="!isLogged">
   <div class="col s12 m6 offset-m3">
+    <div class="card horizontal grey lighten-3">
+        <div class="card-stacked">
+        <div class="card-content">
 
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
       <h4 class="h3 mb-3 font-weight-normal">Iniciar sesion</h4>
@@ -44,6 +47,7 @@
       <div *ngIf="message" class="col s12 center">
         <h5 class="color-fi-text">{{message}}</h5>
       </div>
-
 </div>
+</div>
+</div></div>
 </div>
