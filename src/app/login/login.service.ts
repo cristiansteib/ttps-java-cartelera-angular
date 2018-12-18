@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
+  public fetching = false
+  public message = ""
 
   constructor(
     private http: HttpClient,
@@ -23,10 +25,13 @@ export class LoginService {
     private router: Router,
     private location: Location
     ) {} 
+
+
     url = this.globalsService.getApiUrl()
   /** POST: Login a user*/
   loginUser(user: User) {
-
+    this.message = ""
+    this.fetching = true
     this.http.post<any>(this.url + "auth/login", user).subscribe(
       data => {
         if (data.status == 'ok') {
@@ -36,10 +41,12 @@ export class LoginService {
           this.globalsService.username = data.username
           this.globalsService.is_logged = true
           //this.fecthUserData()
+          this.fetching = false
           window.location.replace("/carteleras")
           //this.router.navigate(['/carteleras'])
         } else {
-          window.alert("Usuario invalido.")
+          this.fetching = false
+          this.message = "Usuario incorrecto!"
         }
       })
     }

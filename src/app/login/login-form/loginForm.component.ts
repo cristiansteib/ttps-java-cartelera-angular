@@ -31,6 +31,15 @@ import { GlobalsService } from 'src/app/globals.service';
         } 
     }
 
+    get fetching(): boolean {
+        // for show loading icon
+        return this.loginService.fetching
+    }
+
+    get message(): string {
+        return this.loginService.message
+    }
+    
     get isLogged(){
         return this.globalService.is_logged
     }

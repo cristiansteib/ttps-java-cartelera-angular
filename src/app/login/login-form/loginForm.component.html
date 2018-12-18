@@ -1,25 +1,49 @@
 <div *ngIf="!isLogged">
-  <form  #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col s12 m5 offset-m4">
-    <h4 class="h3 mb-3 font-weight-normal">Iniciar sesion</h4>
-    
-    <div class="input-field col s12">
-        <i class="material-icons prefix">account_circle</i>
-        <input id="username" type="text" class="validate" [(ngModel)]="model.username" name="username" required>
-        <label for="username">Usuario</label>
-    </div>
+  <div class="col s12 m6 offset-m3">
 
-    <div class="input-field col s12">
-        <i class="material-icons prefix">lock</i>
-        <input id="password" type="password" class="validate" [(ngModel)]="model.password" name="password" required>
-        <label for="password">Contraseña</label>
-    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <h4 class="h3 mb-3 font-weight-normal">Iniciar sesion</h4>
+      
+      <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="username" type="text" class="validate" [(ngModel)]="model.username" name="username" required>
+          <label for="username">Usuario</label>
+      </div>
 
-    <div *ngIf="invalidLogin" class="form-group text-left text-danger">
-      <p>Usuario invalido.</p>
-    </div>
+      <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input id="password" type="password" class="validate" [(ngModel)]="model.password" name="password" required>
+          <label for="password">Contraseña</label>
+      </div>
 
-    <button class="btn btn--color-fi waves-effect waves-light right" type="submit" name="action" [disabled]="!loginForm.form.valid">Iniciar sesion
-        <i class="material-icons right">send</i>
-    </button>
-  </form>
+      <div *ngIf="invalidLogin" class="form-group text-left text-danger">
+        <p>Usuario invalido.</p>
+      </div>
+
+      <button class="btn btn--color-fi waves-effect waves-light right" type="submit" name="action" [disabled]="!loginForm.form.valid">Iniciar sesion
+          <i class="material-icons right">send</i>
+      </button>
+    </form>
+
+    <div *ngIf="fetching" class="col s12 center">
+        <div *ngIf="isUpdating || !billboards" class="preloader-wrapper big active center">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="message" class="col s12 center">
+        <h5 class="color-fi-text">{{message}}</h5>
+      </div>
+
+</div>
 </div>
